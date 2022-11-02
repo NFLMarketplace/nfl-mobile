@@ -4,6 +4,7 @@ import {gestureHandlerRootHOC as withGestureHandler} from 'react-native-gesture-
 import {Main} from './main';
 import {Settings} from './settings';
 import {Login} from './crud/login';
+import {Register} from './crud/register';
 
 import {withBottomTab, withRightButtons} from '../services/navigation/options';
 import {Sample} from './_screen-sample';
@@ -14,6 +15,14 @@ export const screens = generateRNNScreens(
   {
     Login: {
       component: Login,
+      options: {
+        topBar: {
+          visible: false,
+        },
+      },
+    },
+    Register: {
+      component: Register,
       options: {
         topBar: {
           visible: false,

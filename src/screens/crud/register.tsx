@@ -17,10 +17,11 @@ import {
   TextField,
   View,
   TouchableOpacity,
+  Checkbox,
 } from 'react-native-ui-lib';
 import {If} from '@kanzitelli/if-component';
 
-import {screens} from '../index';
+import {Row} from '../../components/row';
 
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
@@ -29,7 +30,7 @@ const elementHeight = screenWidth * 0.12;
 const logoHeight = screenHeight / 11;
 const defaultBorderRadius = 5;
 
-export const Login: NavigationFunctionComponent = observer(({componentId}) => {
+export const Register: NavigationFunctionComponent = observer(({}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const emailRef = useRef();
@@ -50,7 +51,7 @@ export const Login: NavigationFunctionComponent = observer(({componentId}) => {
   return (
     <>
       <KeyboardAwareScrollView contentContainerStyle={styles.contentContainer}>
-        <View center height={'80%'}>
+        <View center flex>
           <View center marginB-s10>
             <Image
               assetName="logo"
@@ -63,7 +64,7 @@ export const Login: NavigationFunctionComponent = observer(({componentId}) => {
           </View>
           <View bottom marginB-s2>
             <Text text24Bold margin-s2 textColor>
-              Login to Get Started
+              Register to Get Started
             </Text>
             <View
               bg-greyDark
@@ -76,8 +77,8 @@ export const Login: NavigationFunctionComponent = observer(({componentId}) => {
                 hideUnderline={true}
                 blurOnSubmit={false}
                 style={styles.textField}
-                keyboardType="email-address"
-                placeholder="Email"
+                keyboardType="name"
+                placeholder="Company Name"
                 text14Medium
                 textColor
                 placeholderTextColor={Colors.textColor}
@@ -90,12 +91,63 @@ export const Login: NavigationFunctionComponent = observer(({componentId}) => {
               />
             </View>
           </View>
+
+          <View
+            marginB-s2
+            bg-greyDark
+            borderRadius={defaultBorderRadius}
+            borderWidth={Colors.greyDark === Colors.greyLight ? 0.2 : 0}>
+            <TextField
+              width={elementWidth}
+              height={elementHeight}
+              ref={emailRef}
+              hideUnderline={true}
+              blurOnSubmit={false}
+              style={styles.textField}
+              placeholder="Phone Number"
+              text14Medium
+              keyboardType={'number-pad'}
+              textColor
+              placeholderTextColor={Colors.textColor}
+              onChangeText={setEmail}
+              migrate
+              onSubmitEditing={() => {
+                passwordRef?.current.focus();
+              }}
+              returnKeyType={'next'}
+            />
+          </View>
+          <View
+            marginB-s2
+            bg-greyDark
+            borderRadius={8}
+            borderWidth={Colors.greyDark === Colors.greyLight ? 0.2 : 0}>
+            <TextField
+              width={elementWidth}
+              height={elementHeight}
+              ref={emailRef}
+              hideUnderline={true}
+              blurOnSubmit={false}
+              style={styles.textField}
+              keyboardType="email-address"
+              placeholder="Email"
+              text14Medium
+              textColor
+              placeholderTextColor={Colors.textColor}
+              onChangeText={setEmail}
+              migrate
+              onSubmitEditing={() => {
+                passwordRef?.current.focus();
+              }}
+              returnKeyType={'next'}
+            />
+          </View>
           <View
             borderWidth={Colors.greyDark === Colors.greyLight ? 0.2 : 0}
+            marginB-s2
             bg-greyDark
             br-8
-            borderRadius={defaultBorderRadius}
-            marginT-s2>
+            borderRadius={defaultBorderRadius}>
             <TextField
               text12Regular
               width={elementWidth}
@@ -116,14 +168,23 @@ export const Login: NavigationFunctionComponent = observer(({componentId}) => {
               }}
             />
           </View>
-          <View right width={'90%'} marginT-s2>
-            <TouchableOpacity padding-s2>
-              <Text text10Medium>Forgot Password?</Text>
-            </TouchableOpacity>
+          <View left width={'90%'} marginT-s2>
+            <Row>
+              <Checkbox
+                style={styles.checkboxSelected}
+                value={false}
+                onValueChange={() => console.log('value changed')}
+              />
+              <TouchableOpacity padding-s2>
+                <Text text10Medium textColor>
+                  I accept Terms of Service
+                </Text>
+              </TouchableOpacity>
+            </Row>
           </View>
           <View centerH margin-s5 width={'80%'}>
             <Button
-              borderRadius={8}
+              borderRadius={defaultBorderRadius}
               style={styles.button}
               animateLayout={true}
               backgroundColor={Colors.primary}
@@ -138,21 +199,19 @@ export const Login: NavigationFunctionComponent = observer(({componentId}) => {
                     <ActivityIndicator color={Colors.white} size={'large'} />
                   </View>
                 }
-                _else={<Text text18Bold>Login</Text>}
+                _else={<Text text18Bold>Register</Text>}
               />
             </Button>
           </View>
         </View>
       </KeyboardAwareScrollView>
       <View center marginB-10>
-        <TouchableOpacity
-          padding-s2
-          onPress={() => {
-            screens.push(componentId, 'Register');
-          }}>
+        <TouchableOpacity padding-s2>
           <Text text12Medium textColor>
-            New to the NFL?
-            <Text primary> Register</Text>
+            Already register on NFL?{' '}
+            <Text text12Medium primary>
+              Login
+            </Text>
           </Text>
         </TouchableOpacity>
       </View>
@@ -178,5 +237,8 @@ const styles = StyleSheet.create({
   button: {
     height: 48,
     width: elementWidth,
+  },
+  checkboxSelected: {
+    borderColor: Colors.accent,
   },
 });
