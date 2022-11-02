@@ -3,15 +3,23 @@ import {gestureHandlerRootHOC as withGestureHandler} from 'react-native-gesture-
 
 import {Main} from './main';
 import {Settings} from './settings';
+import {Login} from './crud/login';
 
 import {withBottomTab, withRightButtons} from '../services/navigation/options';
 import {Sample} from './_screen-sample';
-import {Playground} from './playground';
 import {withAppearance} from '../utils/hooks';
 import {withSS} from '../utils/providers';
 
 export const screens = generateRNNScreens(
   {
+    Login: {
+      component: Login,
+      options: {
+        topBar: {
+          visible: false,
+        },
+      },
+    },
     Main: {
       component: Main,
       options: {
@@ -20,13 +28,6 @@ export const screens = generateRNNScreens(
           ...withRightButtons('inc', 'dec'),
         },
         ...withBottomTab('Main', 'home'),
-      },
-    },
-    Playground: {
-      component: Playground,
-      options: {
-        topBar: {title: {text: 'Playground'}},
-        ...withBottomTab('Playground', 'construct'),
       },
     },
     Settings: {

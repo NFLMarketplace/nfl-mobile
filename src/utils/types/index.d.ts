@@ -24,4 +24,5 @@ type ThemeColors = {
   textColor: string;
   bgColor: string;
   bg2Color: string;
+  greyDark: string;
 };

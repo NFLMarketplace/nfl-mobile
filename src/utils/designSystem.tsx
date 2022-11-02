@@ -12,6 +12,8 @@ export class DesignSystem {
     primary: '#D3AD39',
     secondary: '#469c57', // green
     accent: '#fed330', // yellow
+    greyDark: '#1C1E1F',
+    greyLight: '#FFFFFF',
     _black: Colors.rgba(20, 20, 20, 1),
     _black2: Colors.rgba(50, 50, 50, 1),
     _white: Colors.rgba(250, 250, 250, 1),
@@ -24,11 +26,13 @@ export class DesignSystem {
       textColor: this.colors._black,
       bgColor: this.colors._white,
       bg2Color: this.colors._white2,
+      greyDark: this.colors.greyLight,
     },
     dark: {
       textColor: this.colors._white,
       bgColor: this.colors._black,
       bg2Color: this.colors._black2,
+      greyDark: this.colors.greyDark,
     },
   };
 
@@ -57,6 +61,12 @@ export class DesignSystem {
 
     Typography.loadTypographies({
       section: {fontSize: 26, fontWeight: '600'},
+      text28Bold: {fontSize: 28, fontWeight: '800'},
+      text24Bold: {fontSize: 24, fontWeight: '800'},
+      text18Bold: {fontSize: 18, fontWeight: '800'},
+      text10Medium: {fontSize: 10, fontWeight: '400'},
+      text12Medium: {fontSize: 12, fontWeight: '400'},
+      text12ExtraBold: {fontSize: 12, fontWeight: '950'},
     });
   }
 

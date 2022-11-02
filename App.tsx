@@ -5,6 +5,7 @@ import {screens} from './src/screens';
 import {Services} from './src/services';
 import {Stores} from './src/stores';
 import {DesignSystem} from './src/utils/designSystem';
+import {readAllAssets} from './src/utils/constants';
 import SplashScreen from 'react-native-splash-screen';
 
 LogBox.ignoreLogs(['Require', 'RCTBridge']);
@@ -16,18 +17,13 @@ export const beforeStart = async (): PVoid => {
   // 2. configure design system
   await DesignSystem.configure();
 
-  // 3. init services
+  //3. load assets
+  await readAllAssets();
+  // 4. init services
   await Services.init();
 
-  // 4. hide splash screen
+  // 5. hide splash screen
   SplashScreen.hide();
 };
 
-export const App = () =>
-  Root(
-    BottomTabs([
-      Screen(screens.get('Main')),
-      Screen(screens.get('Playground')),
-      Screen(screens.get('Settings')),
-    ]),
-  );
+export const App = () => Root(Screen(screens.get('Login')));
