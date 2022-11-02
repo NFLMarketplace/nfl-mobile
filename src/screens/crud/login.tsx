@@ -75,6 +75,7 @@ export const Login: NavigationFunctionComponent = observer(({}) => {
                 style={styles.textField}
                 keyboardType="email-address"
                 placeholder="Email"
+                text14Medium
                 textColor
                 placeholderTextColor={Colors.textColor}
                 onChangeText={setEmail}
@@ -102,6 +103,7 @@ export const Login: NavigationFunctionComponent = observer(({}) => {
               secureTextEntry={true}
               style={styles.textField}
               textColor
+              text14Medium
               placeholder="Password"
               placeholderTextColor={Colors.textColor}
               onChangeText={setPassword}

@@ -20,6 +20,13 @@ export class DesignSystem {
     _white2: Colors.rgba(230, 230, 230, 1),
   };
 
+  static fonts = {
+    medium: 'Gilroy-Medium',
+    bold: 'Gilroy-Bold',
+    light: 'Gilroy-light',
+    ExtraBold: 'Gilroy-ExtraBold',
+  };
+
   static themes: Record<Appearance, ThemeColors> = {
     system: {} as any,
     light: {
@@ -61,12 +68,25 @@ export class DesignSystem {
 
     Typography.loadTypographies({
       section: {fontSize: 26, fontWeight: '600'},
-      text28Bold: {fontSize: 28, fontWeight: '800'},
-      text24Bold: {fontSize: 24, fontWeight: '800'},
-      text18Bold: {fontSize: 18, fontWeight: '800'},
-      text10Medium: {fontSize: 10, fontWeight: '400'},
-      text12Medium: {fontSize: 12, fontWeight: '400'},
-      text12ExtraBold: {fontSize: 12, fontWeight: '950'},
+      text28Bold: {fontSize: 28, fontFamily: this.fonts.bold},
+      text24Bold: {fontSize: 24, fontFamily: this.fonts.bold},
+      text18Bold: {fontSize: 18, fontFamily: this.fonts.bold},
+      text10Medium: {
+        fontSize: 10,
+        fontFamily: this.fonts.medium,
+      },
+      text14Medium: {
+        fontSize: 14,
+        fontFamily: this.fonts.medium,
+      },
+      text12Medium: {
+        fontSize: 12,
+        fontFamily: this.fonts.medium,
+      },
+      text12ExtraBold: {
+        fontSize: 12,
+        fontFamily: this.fonts.bold,
+      },
     });
   }
 
