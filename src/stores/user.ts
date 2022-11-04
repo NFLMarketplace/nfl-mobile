@@ -4,7 +4,7 @@ import {Alert} from 'react-native';
 import {observable} from 'mobx';
 
 import {apiSauce} from '../services/api/apiManager';
-import {LOGIN_EP} from '../services/api/apiConstants';
+import {LOGIN_EP, REGISTER_EP} from '../services/api/apiConstants';
 import {IStore, UserData, PVoid} from '../utils/types';
 
 export class UserStore implements IStore {
@@ -16,7 +16,7 @@ export class UserStore implements IStore {
 
   attemptToLogin(username: string, password: string): void {
     this.handleUserOpsLoading(true);
-    apiSauce()
+    apiSauce(false)
       .post(LOGIN_EP, {username, password})
       .then(apiResponse => {
         const {status} = apiResponse;
@@ -48,6 +48,34 @@ export class UserStore implements IStore {
   attemptToLogout(): void {
     this.handleIsLoggedIn(false);
     this.handleProfileDetails(null);
+  }
+
+  attemptToRegister(
+    companyName: string,
+    phone: string,
+    email: string,
+    password: string,
+  ): void {
+    this.handleUserOpsLoading(true);
+    apiSauce(false)
+      .post(REGISTER_EP, {
+        company_name: companyName,
+        phone_number: phone,
+        email,
+        password,
+      })
+      .then(apiResponse => {
+        const {status} = apiResponse;
+        if (status === 200) {
+          this.handleIsLoggedIn(true);
+        } else {
+          this.handleServerExceptions(apiResponse.data.message);
+        }
+        this.handleUserOpsLoading(false);
+      })
+      .catch(_apiError => {
+        this.handleServerExceptions(_apiError.message);
+      });
   }
 
   constructor() {

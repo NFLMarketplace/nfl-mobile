@@ -23,6 +23,7 @@ import {If} from '@kanzitelli/if-component';
 
 import {Row} from '../../components/row';
 import {screens} from '../index';
+import {stores} from '../../stores';
 
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
@@ -66,7 +67,7 @@ export const Register: NavigationFunctionComponent = observer(
         Alert.alert('alert', 'Please Agree with Terms');
         return;
       }
-      //   stores.user.attemptToLogin(email, password);
+      stores.user.attemptToRegister(companyName, phoneNumber, email, password);
     };
 
     return (
@@ -212,17 +213,20 @@ export const Register: NavigationFunctionComponent = observer(
               <Button
                 borderRadius={defaultBorderRadius}
                 style={styles.button}
-                animateLayout={true}
+                animateLayout={stores.user.is_user_ops_loading}
                 backgroundColor={Colors.primary}
                 onPress={() => {
                   Keyboard.dismiss();
                   handleSubmitPress();
                 }}>
                 <If
-                  _={false}
+                  _={stores.user.is_user_ops_loading}
                   _then={
                     <View>
-                      <ActivityIndicator color={Colors.white} size={'large'} />
+                      <ActivityIndicator
+                        color={Colors.bgColor}
+                        size={'large'}
+                      />
                     </View>
                   }
                   _else={<Text text18Bold>Register</Text>}
