@@ -8,18 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* RNNStarterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* RNNStarterTests.m */; };
+		07449ED440554D43B5C65F01 /* Gilroy-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 024E1002540E427A8A7536F9 /* Gilroy-Bold.ttf */; };
 		0C2CA7B428B99042002E4349 /* file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CA7B328B99042002E4349 /* file.swift */; };
 		0C80B921A6F3F58F76C31292 /* libPods-RNNStarter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-RNNStarter.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		1673BDD482F8494A870E8395 /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CDCF0ECEDCF643CEA82ACC5E /* Gilroy-ExtraBold.otf */; };
 		17F13FBE7099DDA1527AD461 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5109088BA618085E5FC827FA /* ExpoModulesProvider.swift */; };
+		37E64113494D417D919B3DB7 /* Gilroy-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B937F4E81F445D399B82510 /* Gilroy-Medium.ttf */; };
 		4F2E25EF0782BDAE4BEDF224 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DABC535D0282A8963F75F /* ExpoModulesProvider.swift */; };
 		7699B88040F8A987B510C191 /* libPods-RNNStarter-RNNStarterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-RNNStarter-RNNStarterTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		07449ED440554D43B5C65F01 /* Gilroy-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 024E1002540E427A8A7536F9 /* Gilroy-Bold.ttf */; };
-		37E64113494D417D919B3DB7 /* Gilroy-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B937F4E81F445D399B82510 /* Gilroy-Medium.ttf */; };
-		1673BDD482F8494A870E8395 /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CDCF0ECEDCF643CEA82ACC5E /* Gilroy-ExtraBold.otf */; };
 		ACB2E13F9DB44DCA892CDD82 /* Gilroy-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A24E44555E59405DB4E5DEB3 /* Gilroy-Light.otf */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +37,7 @@
 		00E356EE1AD99517003FC87E /* RNNStarterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RNNStarterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* RNNStarterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNNStarterTests.m; sourceTree = "<group>"; };
+		024E1002540E427A8A7536F9 /* Gilroy-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Gilroy-Bold.ttf"; path = "../assets/fonts/Gilroy-Bold.ttf"; sourceTree = "<group>"; };
 		0C2CA7B228B99042002E4349 /* RNNStarter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNNStarter-Bridging-Header.h"; sourceTree = "<group>"; };
 		0C2CA7B328B99042002E4349 /* file.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = file.swift; sourceTree = "<group>"; };
 		0C9D880A28D0CC9500C0ADD9 /* hermes.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = hermes.xcframework; path = "Pods/hermes-engine/destroot/Library/Frameworks/universal/hermes.xcframework"; sourceTree = "<group>"; };
@@ -63,6 +64,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = RNNStarter/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = RNNStarter/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-RNNStarter-RNNStarterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNNStarter-RNNStarterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B937F4E81F445D399B82510 /* Gilroy-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Gilroy-Medium.ttf"; path = "../assets/fonts/Gilroy-Medium.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-RNNStarter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNNStarter.debug.xcconfig"; path = "Target Support Files/Pods-RNNStarter/Pods-RNNStarter.debug.xcconfig"; sourceTree = "<group>"; };
 		5109088BA618085E5FC827FA /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-RNNStarter-RNNStarterTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		548DABC535D0282A8963F75F /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-RNNStarter/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
@@ -71,11 +73,9 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-RNNStarter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNNStarter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = RNNStarter/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-RNNStarter-RNNStarterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNNStarter-RNNStarterTests.release.xcconfig"; path = "Target Support Files/Pods-RNNStarter-RNNStarterTests/Pods-RNNStarter-RNNStarterTests.release.xcconfig"; sourceTree = "<group>"; };
+		A24E44555E59405DB4E5DEB3 /* Gilroy-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Gilroy-Light.otf"; path = "../assets/fonts/Gilroy-Light.otf"; sourceTree = "<group>"; };
+		CDCF0ECEDCF643CEA82ACC5E /* Gilroy-ExtraBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Gilroy-ExtraBold.otf"; path = "../assets/fonts/Gilroy-ExtraBold.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		024E1002540E427A8A7536F9 /* Gilroy-Bold.ttf */ = {isa = PBXFileReference; name = "Gilroy-Bold.ttf"; path = "../assets/fonts/Gilroy-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		1B937F4E81F445D399B82510 /* Gilroy-Medium.ttf */ = {isa = PBXFileReference; name = "Gilroy-Medium.ttf"; path = "../assets/fonts/Gilroy-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		CDCF0ECEDCF643CEA82ACC5E /* Gilroy-ExtraBold.otf */ = {isa = PBXFileReference; name = "Gilroy-ExtraBold.otf"; path = "../assets/fonts/Gilroy-ExtraBold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A24E44555E59405DB4E5DEB3 /* Gilroy-Light.otf */ = {isa = PBXFileReference; name = "Gilroy-Light.otf"; path = "../assets/fonts/Gilroy-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +153,17 @@
 				0CCFB17B28BC14D300ADC163 /* Fonts */,
 			);
 			name = RNNStarter;
+			sourceTree = "<group>";
+		};
+		2111456B1CEE405FB3D79A2F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				024E1002540E427A8A7536F9 /* Gilroy-Bold.ttf */,
+				1B937F4E81F445D399B82510 /* Gilroy-Medium.ttf */,
+				CDCF0ECEDCF643CEA82ACC5E /* Gilroy-ExtraBold.otf */,
+				A24E44555E59405DB4E5DEB3 /* Gilroy-Light.otf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -234,18 +245,6 @@
 			);
 			name = RNNStarterTests;
 			sourceTree = "<group>";
-		};
-		2111456B1CEE405FB3D79A2F /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				024E1002540E427A8A7536F9 /* Gilroy-Bold.ttf */,
-				1B937F4E81F445D399B82510 /* Gilroy-Medium.ttf */,
-				CDCF0ECEDCF643CEA82ACC5E /* Gilroy-ExtraBold.otf */,
-				A24E44555E59405DB4E5DEB3 /* Gilroy-Light.otf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -597,7 +596,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3AH8NJ64XY;
+				DEVELOPMENT_TEAM = 563A2XJ8U4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = RNNStarter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -610,7 +609,7 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = io.batyr.RNNStarter;
+				PRODUCT_BUNDLE_IDENTIFIER = io.rizwan.test;
 				PRODUCT_NAME = RNNStarter;
 				SWIFT_OBJC_BRIDGING_HEADER = "RNNStarter-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -627,7 +626,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3AH8NJ64XY;
+				DEVELOPMENT_TEAM = 563A2XJ8U4;
 				INFOPLIST_FILE = RNNStarter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -639,7 +638,7 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = io.batyr.RNNStarter;
+				PRODUCT_BUNDLE_IDENTIFIER = io.rizwan.test;
 				PRODUCT_NAME = RNNStarter;
 				SWIFT_OBJC_BRIDGING_HEADER = "RNNStarter-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

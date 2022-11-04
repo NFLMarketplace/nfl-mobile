@@ -21,6 +21,7 @@ import {
 import {If} from '@kanzitelli/if-component';
 
 import {screens} from '../index';
+import {stores} from '../../stores';
 
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
@@ -44,7 +45,7 @@ export const Login: NavigationFunctionComponent = observer(({componentId}) => {
       Alert.alert('Alert', 'Please enter Password');
       return;
     }
-    //   stores.user.attemptToLogin(email, password);
+    stores.user.attemptToLogin(email, password);
   };
 
   return (
@@ -125,14 +126,15 @@ export const Login: NavigationFunctionComponent = observer(({componentId}) => {
             <Button
               borderRadius={8}
               style={styles.button}
-              animateLayout={true}
+              animateLayout={stores.user.is_user_ops_loading}
               backgroundColor={Colors.primary}
               onPress={() => {
                 Keyboard.dismiss();
+                console.log(email, password);
                 handleSubmitPress();
               }}>
               <If
-                _={false}
+                _={stores.user.is_user_ops_loading}
                 _then={
                   <View>
                     <ActivityIndicator color={Colors.white} size={'large'} />
