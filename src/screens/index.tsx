@@ -3,11 +3,11 @@ import {gestureHandlerRootHOC as withGestureHandler} from 'react-native-gesture-
 
 import {Main} from './main';
 import {Settings} from './settings';
+import {InquiryForm} from './inquiryForm';
 import {Login} from './crud/login';
 import {Register} from './crud/register';
 
 import {withBottomTab, withRightButtons} from '../services/navigation/options';
-import {Sample} from './_screen-sample';
 import {withAppearance} from '../utils/hooks';
 import {withSS} from '../utils/providers';
 
@@ -47,11 +47,11 @@ export const screens = generateRNNScreens(
       },
     },
 
-    Sample: {
-      component: Sample,
+    InquiryForm: {
+      component: InquiryForm,
       options: {
         topBar: {
-          title: {text: 'Sample'},
+          visible: false,
         },
       },
     },

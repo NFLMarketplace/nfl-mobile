@@ -85,25 +85,6 @@ export const Settings: ScreenComponent = observer(({componentId}) => {
               />
             </Row>
           </View>
-
-          <View paddingV-s1>
-            <Row>
-              <View flex>
-                <Text textColor text60R>
-                  Language
-                </Text>
-              </View>
-
-              <SegmentedControl
-                initialIndex={languageInitialIndex}
-                segments={languageSegments}
-                backgroundColor={Colors.bgColor}
-                activeColor={Colors.primary}
-                inactiveColor={Colors.textColor}
-                onChangeIndex={handleLanguageIndexChange}
-              />
-            </Row>
-          </View>
         </Section>
       </ScrollView>
     </View>

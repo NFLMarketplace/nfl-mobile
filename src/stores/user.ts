@@ -6,6 +6,7 @@ import {observable} from 'mobx';
 import {apiSauce} from '../services/api/apiManager';
 import {LOGIN_EP, REGISTER_EP} from '../services/api/apiConstants';
 import {IStore, UserData, PVoid} from '../utils/types';
+import {services} from '../services';
 
 export class UserStore implements IStore {
   is_logged_in = false;
@@ -25,8 +26,8 @@ export class UserStore implements IStore {
           this.handleAuthToken(apiResponse.data.token);
           this.handleUserPhoneNumber(apiResponse.data.user_phone_number);
           this.handleIsLoggedIn(true);
-          //const navService = new NavService();
-          //navService.goToMain();
+          const {nav} = services;
+          nav.goToMain();
         } else {
           this.handleServerExceptions(apiResponse.data.message);
         }

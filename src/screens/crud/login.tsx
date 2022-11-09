@@ -1,5 +1,5 @@
 import {observer} from 'mobx-react';
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   Alert,
   ActivityIndicator,
@@ -22,6 +22,7 @@ import {If} from '@kanzitelli/if-component';
 
 import {screens} from '../index';
 import {stores} from '../../stores';
+import {services} from '../../services';
 
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
@@ -36,6 +37,9 @@ export const Login: NavigationFunctionComponent = observer(({componentId}) => {
   const emailRef = useRef();
   const passwordRef = useRef();
 
+  useEffect(() => {
+    stores.user.is_logged_in && services.nav.goToMain();
+  }, []);
   const handleSubmitPress = () => {
     if (!email) {
       Alert.alert('Alert', 'Please enter Email');

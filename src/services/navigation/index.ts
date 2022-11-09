@@ -1,4 +1,5 @@
 import {Platform} from 'react-native';
+import {Root, BottomTabs, Screen} from 'rnn-screens';
 import merge from 'lodash/merge';
 import {
   navDefaultOptions,
@@ -67,6 +68,17 @@ export class NavigationService implements IService {
     this.configureTitleTranslations();
   };
 
+  goToMain = (): void => {
+    screens.N.setRoot(
+      Root(
+        BottomTabs([
+          Screen(screens.get('Main')),
+          Screen(screens.get('Settings')),
+        ]),
+      ),
+    );
+  };
+
   private configureTitleTranslations = () => {
     const {t} = services;
 
@@ -74,7 +86,7 @@ export class NavigationService implements IService {
     // for ex., if you want to use translate service
     screens.mergeOptions('Main', {
       topBar: {
-        title: {text: t.do('home.title')},
+        visible: false,
       },
       bottomTab: {
         text: t.do('home.title'),
@@ -82,7 +94,7 @@ export class NavigationService implements IService {
     });
     screens.mergeOptions('Settings', {
       topBar: {
-        title: {text: t.do('settings.title')},
+        visible: false,
       },
       bottomTab: {
         text: t.do('settings.title'),
