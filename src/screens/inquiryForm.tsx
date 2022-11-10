@@ -2,12 +2,22 @@ import React from 'react';
 import {ScrollView, Dimensions, StyleSheet} from 'react-native';
 
 import {ScreenComponent} from 'rnn-screens';
-import {Button, Colors, Text, TextField, View} from 'react-native-ui-lib';
+import {
+  Button,
+  Colors,
+  Text,
+  TextField,
+  View,
+  Picker,
+  Icon,
+} from 'react-native-ui-lib';
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
 const elementWidth = screenWidth * 0.85;
 const elementHeight = screenWidth * 0.12;
 const logoHeight = screenHeight / 11;
+const dropdown = require('../../assets/icons/chevronDown.png');
+const dropdownIcon = <Icon source={dropdown} tintColor={Colors.white} />;
 
 export type Props = {
   componentId: string;
@@ -40,10 +50,10 @@ export const InquiryForm: ScreenComponent<Props> = ({componentId}) => {
               <Text text18Bold>06-10-2022</Text>
             </View>
           </View>
-          <View padding-5 margin-2>
+          <View padding-5 marginL-25>
             <Text text10Medium>
-              Please specify the number of qutations you want to receive for the
-              inquiry
+              Please specify the number of quotations you want to receive for
+              the inquiry
             </Text>
           </View>
           <TextField
@@ -65,15 +75,29 @@ export const InquiryForm: ScreenComponent<Props> = ({componentId}) => {
             returnKeyType={'next'}
           />
           <View padding-5 marginL-15>
-            <Text text12Medium>
+            <Text text12Medium color={Colors.yellow30}>
               . You will be charged a total of 120 AED based on the number of
-              Qoutations
+              Quotations
             </Text>
           </View>
-          <View padding-5 marginL-2>
+          <View padding-5 marginL-45 width={'100%'}>
             <Text text12Medium>
-              Please specify the necessory information for your inquiry
+              Please specify the necessary information for your inquiry
             </Text>
+          </View>
+          <View width={'100%'} paddingL-30 paddingR-30>
+            <Picker
+              placeholder={'Item'}
+              placeholderTextColor={Colors.white}
+              trailingAccessory={dropdownIcon}
+              migrateTextField
+              showSearch
+              pickerModalProps={{
+                animated: true,
+                animationType: 'slide',
+              }}
+              onChange={() => console.log('changed')}
+              enableErrors></Picker>
           </View>
 
           <View flex row width={elementWidth}>
@@ -137,7 +161,7 @@ export const InquiryForm: ScreenComponent<Props> = ({componentId}) => {
                 hideUnderline={true}
                 blurOnSubmit={false}
                 keyboardType="name"
-                placeholder="Country of Origion"
+                placeholder="Country of Origin"
                 text12ExtraBold
                 textColor
                 placeholderTextColor={Colors.textColor}
@@ -262,75 +286,69 @@ export const InquiryForm: ScreenComponent<Props> = ({componentId}) => {
           <View flex row width={elementWidth} marginT-10>
             <View
               width={'50%'}
+              height={60}
               marginB-s2
               padding-5
               bg-greyDark
               borderRadius={2}
               borderWidth={Colors.greyDark === Colors.greyLight ? 0.9 : 0}>
-              <TextField
-                hideUnderline={true}
-                blurOnSubmit={false}
-                keyboardType="name"
-                placeholder="Payment Methods"
-                text12ExtraBold
-                textColor
-                placeholderTextColor={Colors.textColor}
-                // onChangeText={setCompanyName}
-                migrate
-                onSubmitEditing={() => {
-                  //phoneNumberRef?.current.focus();
+              <Picker
+                placeholder={'Payment Method'}
+                placeholderTextColor={Colors.white}
+                trailingAccessory={dropdownIcon}
+                migrateTextField
+                showSearch
+                pickerModalProps={{
+                  animated: true,
+                  animationType: 'slide',
                 }}
-                returnKeyType={'next'}
-              />
+                onChange={() => console.log('changed')}
+                enableErrors></Picker>
             </View>
             <View
               width={'45%'}
+              height={60}
               marginL-15
               marginB-s2
               padding-5
               bg-greyDark
               borderRadius={2}
               borderWidth={Colors.greyDark === Colors.greyLight ? 0.9 : 0}>
-              <TextField
-                hideUnderline={true}
-                blurOnSubmit={false}
-                keyboardType="name"
-                placeholder="Advance (percentage)"
-                text12ExtraBold
-                textColor
-                placeholderTextColor={Colors.textColor}
-                // onChangeText={setCompanyName}
-                migrate
-                onSubmitEditing={() => {
-                  //phoneNumberRef?.current.focus();
+              <Picker
+                placeholder={'Advance (%)'}
+                placeholderTextColor={Colors.white}
+                trailingAccessory={dropdownIcon}
+                migrateTextField
+                showSearch
+                pickerModalProps={{
+                  animated: true,
+                  animationType: 'slide',
                 }}
-                returnKeyType={'next'}
-              />
+                onChange={() => console.log('changed')}
+                enableErrors></Picker>
             </View>
           </View>
           <View flex row width={elementWidth} marginT-10>
             <View
               width={'50%'}
+              height={60}
               marginB-s2
               padding-5
               bg-greyDark
               borderRadius={2}
               borderWidth={Colors.greyDark === Colors.greyLight ? 0.9 : 0}>
-              <TextField
-                hideUnderline={true}
-                blurOnSubmit={false}
-                keyboardType="name"
-                placeholder="Priority"
-                text12ExtraBold
-                textColor
-                placeholderTextColor={Colors.textColor}
-                // onChangeText={setCompanyName}
-                migrate
-                onSubmitEditing={() => {
-                  //phoneNumberRef?.current.focus();
+              <Picker
+                placeholder={'Priority'}
+                placeholderTextColor={Colors.white}
+                trailingAccessory={dropdownIcon}
+                migrateTextField
+                showSearch
+                pickerModalProps={{
+                  animated: true,
+                  animationType: 'slide',
                 }}
-                returnKeyType={'next'}
-              />
+                onChange={() => console.log('changed')}
+                enableErrors></Picker>
             </View>
             <View
               width={'45%'}
