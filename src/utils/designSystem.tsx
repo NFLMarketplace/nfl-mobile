@@ -79,6 +79,10 @@ export class DesignSystem {
         fontSize: 14,
         fontFamily: this.fonts.medium,
       },
+      text18Medium: {
+        fontSize: 18,
+        fontFamily: this.fonts.medium,
+      },
       text12Medium: {
         fontSize: 12,
         fontFamily: this.fonts.medium,
