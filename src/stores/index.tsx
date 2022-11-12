@@ -4,6 +4,7 @@ import './_hydration';
 import {UIStore} from './ui';
 import {CounterStore} from './counter';
 import {UserStore} from './user';
+import {QueryStore} from './query';
 
 export class Stores {
   static async hydrate(): PVoid {
@@ -21,6 +22,7 @@ export class Stores {
   // stores list
   ui = new UIStore();
   user = new UserStore();
+  query = new QueryStore();
   counter = new CounterStore();
 }
 export const stores = new Stores();
