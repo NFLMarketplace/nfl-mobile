@@ -9,8 +9,8 @@ export class QueryStore implements IStore {
     makeAutoObservable(this);
 
     makePersistable(this, {
-      name: SampleStore.name,
-      properties: [],
+      name: 'Query Details',
+      properties: [''],
     });
   }
 
