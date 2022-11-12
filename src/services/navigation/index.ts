@@ -74,6 +74,7 @@ export class NavigationService implements IService {
         BottomTabs([
           Screen(screens.get('Main')),
           Screen(screens.get('Settings')),
+          Screen(screens.get('Profile')),
         ]),
       ),
     );
@@ -90,6 +91,14 @@ export class NavigationService implements IService {
       },
       bottomTab: {
         text: t.do('home.title'),
+      },
+    });
+    screens.mergeOptions('Profile', {
+      topBar: {
+        visible: false,
+      },
+      bottomTab: {
+        text: 'Profile',
       },
     });
     screens.mergeOptions('Settings', {

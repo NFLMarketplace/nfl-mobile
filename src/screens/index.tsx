@@ -6,6 +6,7 @@ import {Settings} from './settings';
 import {InquiryForm} from './inquiryForm';
 import {Login} from './crud/login';
 import {Register} from './crud/register';
+import {Profile} from './profile'
 
 import {withBottomTab, withRightButtons} from '../services/navigation/options';
 import {withAppearance} from '../utils/hooks';
@@ -44,6 +45,14 @@ export const screens = generateRNNScreens(
       options: {
         // title is set in services/navigation/index.ts::configureTitleTranslations
         ...withBottomTab('Settings', 'settings'),
+      },
+    },
+
+    Profile: {
+      component: Profile,
+      options: {
+        // title is set in services/navigation/index.ts::configureTitleTranslations
+        ...withBottomTab('Profile', 'person'),
       },
     },
 
