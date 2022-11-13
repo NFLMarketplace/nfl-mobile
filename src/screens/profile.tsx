@@ -1,6 +1,6 @@
 import React from 'react';
 import {ScrollView, Dimensions, StyleSheet} from 'react-native';
-
+import {stores} from '../stores';
 import {ScreenComponent} from 'rnn-screens';
 import {Colors, Text, View, TouchableOpacity} from 'react-native-ui-lib';
 const screenHeight = Dimensions.get('window').height;
@@ -28,7 +28,7 @@ export const Profile: ScreenComponent<Props> = ({componentId}) => {
             width={elementWidth}
             style={{justifyContent: 'space-between'}}>
             <Text text18Medium>Full Name</Text>
-            <Text text18Medium>Moeed Shahid</Text>
+            <Text text18Medium>{stores.user.user_data?.display_name}</Text>
           </View>
           <View
             flex
@@ -37,7 +37,7 @@ export const Profile: ScreenComponent<Props> = ({componentId}) => {
             width={elementWidth}
             style={{justifyContent: 'space-between'}}>
             <Text text18Medium>Email</Text>
-            <Text text18Medium>moeed.shahid@yahoo.com</Text>
+            <Text text18Medium>{stores.user.user_data?.user_email}</Text>
           </View>
           <View
             flex
@@ -46,7 +46,7 @@ export const Profile: ScreenComponent<Props> = ({componentId}) => {
             width={elementWidth}
             style={{justifyContent: 'space-between'}}>
             <Text text18Medium>Password</Text>
-            <Text text18Medium>********</Text>
+            <Text text18Medium>{stores.user.user_data?.user_pass}</Text>
           </View>
           <View
             flex
@@ -55,7 +55,7 @@ export const Profile: ScreenComponent<Props> = ({componentId}) => {
             width={elementWidth}
             style={{justifyContent: 'space-between'}}>
             <Text text18Medium>Phone Number</Text>
-            <Text text18Medium>+92 333 6787103</Text>
+            <Text text18Medium>{stores.user.user_phone_number}</Text>
           </View>
           <TouchableOpacity marginT-20>
             <Text text18Medium color={Colors.yellow30}>

@@ -73,7 +73,9 @@ export class NavigationService implements IService {
       Root(
         BottomTabs([
           Screen(screens.get('Main')),
-          Screen(screens.get('Settings')),
+
+          Screen(screens.get('Inbox')),
+          Screen(screens.get('Wallet')),
           Screen(screens.get('Profile')),
         ]),
       ),
@@ -101,12 +103,20 @@ export class NavigationService implements IService {
         text: 'Profile',
       },
     });
-    screens.mergeOptions('Settings', {
+    screens.mergeOptions('Inbox', {
       topBar: {
         visible: false,
       },
       bottomTab: {
-        text: t.do('settings.title'),
+        text: 'Inbox',
+      },
+    });
+    screens.mergeOptions('Wallet', {
+      topBar: {
+        visible: false,
+      },
+      bottomTab: {
+        text: 'Wallet',
       },
     });
   };

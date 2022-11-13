@@ -6,8 +6,9 @@ import {Settings} from './settings';
 import {InquiryForm} from './inquiryForm';
 import {Login} from './crud/login';
 import {Register} from './crud/register';
-import {Profile} from './profile'
-
+import {Profile} from './profile';
+import {Inbox} from './inbox';
+import {Wallet} from './wallet';
 import {withBottomTab, withRightButtons} from '../services/navigation/options';
 import {withAppearance} from '../utils/hooks';
 import {withSS} from '../utils/providers';
@@ -37,14 +38,7 @@ export const screens = generateRNNScreens(
           // title is set in services/navigation/index.ts::configureTitleTranslations
           ...withRightButtons('inc', 'dec'),
         },
-        ...withBottomTab('Main', 'home'),
-      },
-    },
-    Settings: {
-      component: Settings,
-      options: {
-        // title is set in services/navigation/index.ts::configureTitleTranslations
-        ...withBottomTab('Settings', 'settings'),
+        ...withBottomTab('Main', 'view-dashboard'),
       },
     },
 
@@ -53,6 +47,22 @@ export const screens = generateRNNScreens(
       options: {
         // title is set in services/navigation/index.ts::configureTitleTranslations
         ...withBottomTab('Profile', 'person'),
+      },
+    },
+
+    Inbox: {
+      component: Inbox,
+      options: {
+        // title is set in services/navigation/index.ts::configureTitleTranslations
+        ...withBottomTab('Inbox', 'chatbubble-ellipses'),
+      },
+    },
+
+    Wallet: {
+      component: Wallet,
+      options: {
+        // title is set in services/navigation/index.ts::configureTitleTranslations
+        ...withBottomTab('Wallet', 'wallet'),
       },
     },
 

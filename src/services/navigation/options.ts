@@ -1,6 +1,8 @@
 import {Options, OptionsTopBar} from 'react-native-navigation';
 import {Colors} from 'react-native-ui-lib';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import {DesignSystem, getThemeStatusBarStyle} from '../../utils/designSystem';
 import {NavButton, navButtons} from './buttons';
 
@@ -73,8 +75,17 @@ export const navDefaultOptions = (): Options => {
 export const withBottomTab = (text = 'Screen', icon = 'earth'): Options => ({
   bottomTab: {
     text,
-    icon: Ionicons.getImageSourceSync(`${icon}-outline`, ICON_SIZE),
-    selectedIcon: Ionicons.getImageSourceSync(icon, ICON_SIZE),
+    icon:
+      icon == 'view-dashboard'
+        ? MaterialCommunityIcons.getImageSourceSync(
+            `${icon}-outline`,
+            ICON_SIZE,
+          )
+        : Ionicons.getImageSourceSync(`${icon}-outline`, ICON_SIZE),
+    selectedIcon:
+      icon == 'view-dashboard'
+        ? MaterialCommunityIcons.getImageSourceSync(icon, ICON_SIZE)
+        : Ionicons.getImageSourceSync(icon, ICON_SIZE),
   },
 });
 

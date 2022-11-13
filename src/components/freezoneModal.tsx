@@ -1,6 +1,6 @@
 import {Modal, RadioButton, View} from 'react-native-ui-lib';
-import React, {useState} from 'react';
-import {ScrollView, Dimensions, StyleSheet, FlatList} from 'react-native';
+import React from 'react';
+import {Dimensions, FlatList} from 'react-native';
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
 const elementWidth = screenWidth * 0.85;
