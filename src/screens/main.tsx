@@ -11,6 +11,7 @@ import {useServices} from '../services';
 import {useStores} from '../stores';
 import {Props as SampleProps} from './_screen-sample';
 import {Row} from '../components/row';
+import {MainHeader} from '../components';
 
 export const Main: ScreenComponent = observer(({componentId}) => {
   const {counter, ui} = useStores();
@@ -21,6 +22,7 @@ export const Main: ScreenComponent = observer(({componentId}) => {
 
   return (
     <View flex bg-bgColor>
+      <MainHeader title={'NFL Marketplace'} rightIcon={'md-notifications'} />
       <ScrollView contentInsetAdjustmentBehavior="always" />
     </View>
   );

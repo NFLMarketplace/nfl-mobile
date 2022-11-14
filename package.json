@@ -19,7 +19,9 @@
     "format": "prettier --check ./src",
     "format:write": "prettier --write ./src",
     "release": "dotenv release-it",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "assemble_assets_for_build": "npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/",
+    "debug_build_android": " yarn assemble_assets_for_build  && cd android && ./gradlew assembleDebug && cd app/build/outputs/apk/debug && cp -R ./ ~/Desktop && cd ~/Desktop && open .;"
   },
   "dependencies": {
     "@kanzitelli/if-component": "^0.3.0",
