@@ -3,6 +3,8 @@ import {ScrollView, Dimensions, StyleSheet} from 'react-native';
 import {AntDesign} from '@expo/vector-icons';
 import {ScreenComponent} from 'rnn-screens';
 import {FreezoneModal} from '../components/freezoneModal';
+import {MainHeader} from '../components';
+import {services} from '../services';
 import {
   RadioButton,
   Colors,
@@ -31,6 +33,13 @@ export const CompanyFormation: ScreenComponent<Props> = ({componentId}) => {
   }
   return (
     <View flex bg-bgColor>
+      <MainHeader
+        title={'NFL Inquiry Form'}
+        leftIcon={'md-chevron-back'}
+        leftIconAction={() => {
+          services.nav.goToMain();
+        }}
+      />
       <ScrollView contentInsetAdjustmentBehavior="always">
         <View flex center>
           <View marginT-15 padding-5 width={elementWidth}>

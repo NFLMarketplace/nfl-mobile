@@ -1,7 +1,11 @@
 import React from 'react';
 import {ScrollView, Dimensions, StyleSheet, FlatList} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {ScreenComponent} from 'rnn-screens';
+import {NavigationContainer} from '@react-navigation/native';
+
+const Tab = createMaterialTopTabNavigator();
 import {
   Colors,
   Text,
@@ -10,6 +14,7 @@ import {
   Badge,
   Chip,
 } from 'react-native-ui-lib';
+import {screens} from '.';
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
 const elementWidth = screenWidth * 0.85;
@@ -26,31 +31,36 @@ export const Inbox: ScreenComponent<Props> = ({componentId}) => {
   ];
 
   const renderItem = ({item}) => (
-    <View
-      marginT-15
-      padding-5
-      bg-greyDark
-      style={{borderRadius: 10}}
-      width={elementWidth}
-      height={70}>
-      <View flex row style={{justifyContent: 'space-between'}}>
-        <Text style={{padding: 10}} text18Bold>
-          {item.Invoice}
-        </Text>
-        <TouchableOpacity
-          paddingL-15
-          paddingT-5
-          style={{
-            backgroundColor: '#219653',
-            height: 30,
-            width: 80,
-            borderRadius: 10,
-          }}>
-          <Text style={{textAlignment: 'center'}}>Active</Text>
-        </TouchableOpacity>
+    <TouchableOpacity
+      onPress={() => {
+        screens.show('QuotationForm');
+      }}>
+      <View
+        marginT-15
+        padding-5
+        bg-greyDark
+        style={{borderRadius: 10}}
+        width={elementWidth}
+        height={70}>
+        <View flex row style={{justifyContent: 'space-between'}}>
+          <Text style={{padding: 10}} text18Bold>
+            {item.Invoice}
+          </Text>
+          <TouchableOpacity
+            paddingL-15
+            paddingT-5
+            style={{
+              backgroundColor: '#219653',
+              height: 30,
+              width: 80,
+              borderRadius: 10,
+            }}>
+            <Text style={{textAlignment: 'center'}}>Active</Text>
+          </TouchableOpacity>
+        </View>
+        <Text text12Medium>{item.noofSMS} new quotations received</Text>
       </View>
-      <Text text12Medium>{item.noofSMS} new quotations received</Text>
-    </View>
+    </TouchableOpacity>
   );
   return (
     <View flex bg-bgColor>

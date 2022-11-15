@@ -1,5 +1,6 @@
 import {Platform} from 'react-native';
 import {Root, BottomTabs, Screen} from 'rnn-screens';
+
 import merge from 'lodash/merge';
 import {
   navDefaultOptions,

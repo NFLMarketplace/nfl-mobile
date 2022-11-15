@@ -2,13 +2,15 @@ import {generateRNNScreens} from 'rnn-screens';
 import {gestureHandlerRootHOC as withGestureHandler} from 'react-native-gesture-handler';
 
 import {Main} from './main';
-import {Settings} from './settings';
+import {QuotationForm} from './quotationForm';
 import {InquiryForm} from './inquiryForm';
 import {Login} from './crud/login';
 import {Register} from './crud/register';
 import {Profile} from './profile';
 import {Inbox} from './inbox';
 import {Wallet} from './wallet';
+import {CompanyFormation} from './companyFormation';
+import {CompleteProfile} from './completeProfile';
 import {withBottomTab, withRightButtons} from '../services/navigation/options';
 import {withAppearance} from '../utils/hooks';
 import {withSS} from '../utils/providers';
@@ -31,6 +33,14 @@ export const screens = generateRNNScreens(
         },
       },
     },
+    QuotationForm: {
+      component: QuotationForm,
+      options: {
+        topBar: {
+          visible: false,
+        },
+      },
+    },
     Main: {
       component: Main,
       options: {
@@ -45,6 +55,9 @@ export const screens = generateRNNScreens(
     Profile: {
       component: Profile,
       options: {
+        topBar: {
+          visible: false,
+        },
         // title is set in services/navigation/index.ts::configureTitleTranslations
         ...withBottomTab('Profile', 'person'),
       },
@@ -68,6 +81,22 @@ export const screens = generateRNNScreens(
 
     InquiryForm: {
       component: InquiryForm,
+      options: {
+        topBar: {
+          visible: false,
+        },
+      },
+    },
+    CompanyFormation: {
+      component: CompanyFormation,
+      options: {
+        topBar: {
+          visible: false,
+        },
+      },
+    },
+    CompleteProfile: {
+      component: CompleteProfile,
       options: {
         topBar: {
           visible: false,

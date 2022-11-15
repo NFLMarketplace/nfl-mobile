@@ -1,6 +1,6 @@
 import React from 'react';
 import {ScrollView, Dimensions, StyleSheet} from 'react-native';
-
+import {MainHeader} from '../components';
 import {ScreenComponent} from 'rnn-screens';
 import {
   Button,
@@ -11,6 +11,8 @@ import {
   Picker,
   Icon,
 } from 'react-native-ui-lib';
+import {services} from '../services';
+import {Main} from './main';
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
 const elementWidth = screenWidth * 0.85;
@@ -25,6 +27,14 @@ export type Props = {
 export const InquiryForm: ScreenComponent<Props> = ({componentId}) => {
   return (
     <View flex bg-bgColor>
+      <MainHeader
+        title={'NFL Inquiry Form'}
+        leftIcon={'md-chevron-back'}
+        leftIconAction={() => {
+          services.nav.goToMain();
+        }}
+      />
+
       <ScrollView contentInsetAdjustmentBehavior="always">
         <View flex center>
           <View flex row width={elementWidth}>

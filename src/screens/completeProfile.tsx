@@ -12,6 +12,8 @@ import {
   Icon,
   Picker,
 } from 'react-native-ui-lib';
+import {services} from '../services';
+import {MainHeader} from '../components';
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
 const elementWidth = screenWidth * 0.85;
@@ -25,14 +27,16 @@ export type Props = {
 export const CompleteProfile: ScreenComponent<Props> = ({componentId}) => {
   return (
     <View flex bg-bgColor>
+      <MainHeader
+        title={'Set Up profile'}
+        leftIcon={'md-chevron-back'}
+        leftIconAction={() => {
+          services.nav.goToMain();
+        }}
+      />
       <ScrollView contentInsetAdjustmentBehavior="always">
         <View flex center>
-          <View
-            width={elementWidth}
-            marginB-s2
-            marginT-10
-            borderRadius={2}
-            borderWidth={Colors.greyDark === Colors.greyLight ? 0.9 : 0}>
+          <View width={elementWidth} borderRadius={2}>
             <Text text16Medium>Business Details</Text>
           </View>
           <View bg-greyDark>

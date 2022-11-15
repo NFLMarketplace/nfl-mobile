@@ -2,6 +2,8 @@ import React from 'react';
 import {ScrollView, Dimensions, StyleSheet} from 'react-native';
 import {AntDesign} from '@expo/vector-icons';
 import {ScreenComponent} from 'rnn-screens';
+import {services} from '../services';
+import {MainHeader} from '../components';
 import {
   Button,
   Colors,
@@ -25,6 +27,13 @@ export type Props = {
 export const QuotationForm: ScreenComponent<Props> = ({componentId}) => {
   return (
     <View flex bg-bgColor>
+      <MainHeader
+        title={'Set Up profile'}
+        leftIcon={'md-chevron-back'}
+        leftIconAction={() => {
+          services.nav.goToMain();
+        }}
+      />
       <ScrollView contentInsetAdjustmentBehavior="always">
         <View flex center>
           <View flex row width={elementWidth}>
