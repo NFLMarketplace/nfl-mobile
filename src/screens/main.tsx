@@ -1,29 +1,71 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import {ScrollView} from 'react-native';
-import {Text, View} from 'react-native-ui-lib';
+import React from 'react';
+import {ImageBackground} from 'react-native';
+import {Text, View, GridList, Spacings} from 'react-native-ui-lib';
 import {ScreenComponent} from 'rnn-screens';
-import * as Application from 'expo-application';
-import {If} from '@kanzitelli/if-component';
 import {observer} from 'mobx-react';
 
-import {screens} from '.';
-import {useServices} from '../services';
-import {useStores} from '../stores';
-import {Props as SampleProps} from './_screen-sample';
-import {Row} from '../components/row';
 import {MainHeader} from '../components';
 
-export const Main: ScreenComponent = observer(({componentId}) => {
-  const {counter, ui} = useStores();
-  const {t, api} = useServices();
 
-  // State (local)
-  const [loading, setLoading] = useState(false);
+type GridDataType = {
+    id: number,
+    title: string,
+    bgImgUrl:string
+  }
+
+export const Main: ScreenComponent = observer(({componentId}) => {
+
+  const gridData: GridDataType[]=[
+  {
+      id:0,
+      title:'Make Enquiry',
+      bgImgUrl: "https://nfl-api.techgebagency.website/wp-content/uploads/2022/10/Make-Inquiry.jpg"
+    },
+  {
+      id:1,
+      title:'PRO Services',
+      bgImgUrl: "https://nfl-api.techgebagency.website/wp-content/uploads/2022/10/PRO-Services.jpg"
+    },
+  {
+      id:2,
+      title:'B2B Services',
+      bgImgUrl: "https://nfl-api.techgebagency.website/wp-content/uploads/2022/10/B2B-Services.jpg"
+    },
+  {
+      id:3,
+      title:'Company Formation',
+      bgImgUrl: "https://nfl-api.techgebagency.website/wp-content/uploads/2022/10/B2B-Services.jpg"
+    },
+{
+    id:4,
+    title:'B2C Services',
+    bgImgUrl: "https://nfl-api.techgebagency.website/wp-content/uploads/2022/10/B2C-Services.jpg"
+ },
+
+  {
+      id:5,
+      title:'WPS Services',
+      bgImgUrl: "https://nfl-api.techgebagency.website/wp-content/uploads/2022/10/WPS-Services.jpg"
+    }
+  ]
+
+
+  const _renderItem = ({item
+  })=>(<ImageBackground resizeMode='stretch' style={{height:200}}  source={{uri: item.bgImgUrl}}><View><Text>{item.title}asds</Text></View></ImageBackground>)
+  
+
 
   return (
     <View flex bg-bgColor>
       <MainHeader title={'NFL Marketplace'} rightIcon={'md-notifications'} />
-      <ScrollView contentInsetAdjustmentBehavior="always" />
+      <GridList
+        data={gridData}
+        renderItem={_renderItem}
+        numColumns={2}
+        maxItemWidth={200}
+        itemSpacing={Spacings.s3}
+        listPadding={Spacings.s5}
+      />
     </View>
   );
 });
