@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
 } from 'react-native-ui-lib';
 import Ionicons from '@expo/vector-icons/Ionicons';
-
+import {ScreenComponent} from 'rnn-screens';
 import {Row} from './row';
 
 interface MainHeaderProps {
@@ -29,7 +29,7 @@ export const MainHeader: React.FC<MainHeaderProps> = ({
       <View width={'20%'} left>
         {leftIcon && (
           <TouchableOpacity absL onPress={leftIconAction}>
-            <Ionicons name={leftIcon} size={30} color={'white'} />
+            <Ionicons name={leftIcon} size={30} />
           </TouchableOpacity>
         )}
       </View>

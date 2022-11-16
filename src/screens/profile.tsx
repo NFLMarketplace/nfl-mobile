@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, Dimensions, StyleSheet} from 'react-native';
+import {ScrollView, Dimensions, StyleSheet, TextInput} from 'react-native';
 import {stores} from '../stores';
 import {ScreenComponent} from 'rnn-screens';
 import {Colors, Text, View, TouchableOpacity} from 'react-native-ui-lib';
@@ -45,9 +45,15 @@ export const Profile: ScreenComponent<Props> = ({componentId}) => {
             paddingT-10
             row
             width={elementWidth}
-            style={{justifyContent: 'space-between'}}>
+            style={{justifyContent: 'space-between', alignItems: 'center'}}>
             <Text text18Medium>Password</Text>
-            <Text text18Medium>{stores.user.user_data?.user_pass}</Text>
+            <TextInput
+              value={stores.user.user_data?.user_pass}
+              secureTextEntry={true}
+              //placeholder={stores.user.user_data?.user_pass}
+              style={{justifyContent: 'center', alignItems: 'center'}}
+              placeholderTextColor={Colors.textColor}
+            />
           </View>
           <View
             flex
