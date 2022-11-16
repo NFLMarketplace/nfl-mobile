@@ -47,17 +47,16 @@ export const Main: ScreenComponent = observer(({componentId}) => {
     },
     {
       id: 3,
-      title: 'Company Formation',
-      bgImgUrl:
-        'https://nfl-api.techgebagency.website/wp-content/uploads/2022/10/B2B-Services.jpg',
-      onPress: 'CompanyFormation',
-    },
-    {
-      id: 4,
       title: 'B2C Services',
       bgImgUrl:
         'https://nfl-api.techgebagency.website/wp-content/uploads/2022/10/B2C-Services.jpg',
       onPress: 'InquiryForm',
+    },
+    {
+      id: 4,
+      title: 'Company Formation',
+      bgImgUrl:'https://nfl-api.techgebagency.website/wp-content/uploads/2022/10/Company-Formation.jpg',
+      onPress: 'CompanyFormation',
     },
 
     {
