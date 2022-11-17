@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
-import {ScrollView, Dimensions, StyleSheet, TextInput} from 'react-native';
+import {observer} from 'mobx-react';
+import {ScrollView, Dimensions, StyleSheet} from 'react-native';
+import {LoaderScreen, PanningProvider, Dialog} from 'react-native-ui-lib';
 import {MainHeader} from '../components';
 import {ScreenComponent} from 'rnn-screens';
+import {stores} from '../stores';
 import _ from 'lodash';
 import {Formik} from 'formik';
 import * as yup from 'yup';
@@ -39,7 +42,6 @@ const ValidationSchema = yup.object().shape({
   deliveryArea: yup.string().required('Required'),
   adressLine1: yup.string().required('Required'),
   adressLine2: yup.string().required('Required'),
-  pCharges: yup.string().required('Required'),
 });
 
 const screenHeight = Dimensions.get('window').height;
@@ -72,7 +74,7 @@ const priorityData = [
 export type Props = {
   componentId: string;
 };
-export const InquiryForm: ScreenComponent<Props> = ({componentId}) => {
+export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
   const [noofQoutation, setnoofQoutation] = useState('');
   const [Item, setItem] = useState('');
   const [paymentMethod, setpaymentMethod] = useState('');
@@ -85,7 +87,7 @@ export const InquiryForm: ScreenComponent<Props> = ({componentId}) => {
     '-' +
     JSON.stringify(randomIntFromInterval(10000000));
   return (
-    <View flex bg-bgColor>
+  <>
       <MainHeader
         title={'NFL Inquiry Form'}
         leftIcon={'md-chevron-back'}
@@ -94,11 +96,12 @@ export const InquiryForm: ScreenComponent<Props> = ({componentId}) => {
         }}
       />
 
-      <ScrollView contentInsetAdjustmentBehavior="always">
-        <View flex center>
+      <ScrollView contentInsetAdjustmentBehavior="always" >
+        <View flex center bg-bgColor>
           <Formik
             validationSchema={ValidationSchema}
             initialValues={{
+              userid: 'Cod3PK',
               inquiryFormNo: formNo,
               date: currentDate,
               quantityInKg: '',
@@ -109,15 +112,11 @@ export const InquiryForm: ScreenComponent<Props> = ({componentId}) => {
               deliveryArea: '',
               adressLine1: '',
               adressLine2: '',
-              pCharges: '',
               notes: '',
               noofQoutation: '',
               item: '',
-              paymentMethod: '',
-              percentage: '',
-              priority: '',
             }}
-            onSubmit={values => console.log(values)}>
+            onSubmit={values => stores.query.attemptToPostInquiryData(values)}>
             {({
               handleChange,
               handleBlur,
@@ -140,7 +139,7 @@ export const InquiryForm: ScreenComponent<Props> = ({componentId}) => {
                     }>
                     <Text text10Medium>Inquiry Form#</Text>
                     <TextField
-                      labelStyle={{fontSize: 18, fontWeight: 'bold'}}
+                      labelStyle={{fontSize: 15, fontWeight: 'bold'}}
                       label={formNo}
                       hideUnderline={true}
                       blurOnSubmit={false}
@@ -168,7 +167,7 @@ export const InquiryForm: ScreenComponent<Props> = ({componentId}) => {
                     }>
                     <Text text10Medium>Date</Text>
                     <TextField
-                      labelStyle={{fontSize: 18, fontWeight: 'bold'}}
+                      labelStyle={{fontSize: 15, fontWeight: 'bold'}}
                       label={currentDate}
                       hideUnderline={true}
                       blurOnSubmit={false}
@@ -184,7 +183,7 @@ export const InquiryForm: ScreenComponent<Props> = ({componentId}) => {
                     />
                   </View>
                 </View>
-                <View padding-5 marginL-25>
+                <View width={elementWidth} padding-5>
                   <Text text10Medium>
                     Please specify the number of quotations you want to receive
                     for the inquiry
@@ -194,10 +193,12 @@ export const InquiryForm: ScreenComponent<Props> = ({componentId}) => {
                 <View
                   bg-greyDark
                   borderRadius={2}
+                  borderWidth={Colors.greyDark === Colors.greyLight ? 0.9 : 0}
                   width={elementWidth}
-                  height={elementHeight + 10}>
+                  paddingH-10
+                  height={elementHeight}>
                   <Picker
-                    paddingT-10
+                    paddingR={10}
                     paddingL-2
                     migrateTextField
                     style={{height: elementHeight}}
@@ -225,42 +226,47 @@ export const InquiryForm: ScreenComponent<Props> = ({componentId}) => {
                     </Text>
                   )}
                 </View>
-                <View padding-5 marginL-15>
+                <View padding-5 width={elementWidth} marginL-5>
                   <Text text12Medium color={Colors.yellow30}>
                     . You will be charged a total of 120 AED based on the number
                     of Quotations
                   </Text>
                 </View>
-                <View padding-5 marginL-45 width={'100%'}>
+                <View padding-5 width={elementWidth}>
                   <Text text12Medium>
                     Please specify the necessary information for your inquiry
                   </Text>
                 </View>
-                <View width={'100%'} paddingL-30 paddingR-30>
-                  <Picker
-                    paddingT-10
-                    paddingL-10
-                    migrateTextField
-                    value={Item}
-                    showSearch
-                    placeholder={'Items'}
+                <View
+                  width={elementWidth}
+                  height={elementHeight}
+                  marginB-s2
+                  padding-5
+                  bg-greyDark
+                  borderRadius={2}
+                  borderWidth={Colors.greyDark === Colors.greyLight ? 0.9 : 0}>
+                  <TextField
+                    name="item"
+                    onChangeText={handleChange('item')}
+                    onBlur={handleBlur('item')}
+                    value={values.item}
+                    hideUnderline={true}
+                    blurOnSubmit={false}
+                    keyboardType="name"
+                    placeholder="Items"
+                    text12ExtraBold
+                    textColor
                     placeholderTextColor={Colors.textColor}
-                    trailingAccessory={dropdownIcon}
-                    onChange={item => {
-                      setItem(item);
-                      values.item = item.value;
-                    }}>
-                    {_.map(options, option => (
-                      <Picker.Item
-                        key={option.value}
-                        value={option}
-                        label={option.label}
-                      />
-                    ))}
-                  </Picker>
-                  {errors.item && (
+                    // onChangeText={setCompanyName}
+                    migrate
+                    onSubmitEditing={() => {
+                      //phoneNumberRef?.current.focus();
+                    }}
+                    returnKeyType={'next'}
+                  />
+                  {errors.quantityInKg && (
                     <Text style={{fontSize: 10, color: 'red'}}>
-                      {errors.item}
+                      {errors.quantityInKg}
                     </Text>
                   )}
                 </View>
@@ -540,168 +546,7 @@ export const InquiryForm: ScreenComponent<Props> = ({componentId}) => {
                     {errors.adressLine2}
                   </Text>
                 )}
-                <View flex row width={elementWidth} marginT-10>
-                  <View
-                    width={'50%'}
-                    height={elementHeight}
-                    marginB-s2
-                    padding-5
-                    bg-greyDark
-                    borderRadius={2}
-                    borderWidth={
-                      Colors.greyDark === Colors.greyLight ? 0.9 : 0
-                    }>
-                    <Picker
-                      placeholder={'Payment Method'}
-                      placeholderTextColor={Colors.textColor}
-                      trailingAccessory={dropdownIcon}
-                      migrateTextField
-                      showSearch
-                      pickerModalProps={{
-                        animated: true,
-                        animationType: 'slide',
-                      }}
-                      value={paymentMethod}
-                      onChange={item => {
-                        setpaymentMethod(item);
-                        values.paymentMethod = item.value;
-                        console.log(noofQoutation);
-                      }}
-                      enableErrors>
-                      {_.map(paymentMethodData, option => (
-                        <Picker.Item
-                          key={option.value}
-                          value={option}
-                          label={option.label}
-                        />
-                      ))}
-                    </Picker>
-                    {errors.paymentMethod && (
-                      <Text style={{fontSize: 10, color: 'red'}}>
-                        {errors.paymentMethod}
-                      </Text>
-                    )}
-                  </View>
-                  <View
-                    width={'45%'}
-                    height={elementHeight}
-                    marginL-15
-                    marginB-s2
-                    padding-5
-                    bg-greyDark
-                    borderRadius={2}
-                    borderWidth={
-                      Colors.greyDark === Colors.greyLight ? 0.9 : 0
-                    }>
-                    <Picker
-                      placeholder={'Advance (%)'}
-                      placeholderTextColor={Colors.textColor}
-                      trailingAccessory={dropdownIcon}
-                      migrateTextField
-                      showSearch
-                      pickerModalProps={{
-                        animated: true,
-                        animationType: 'slide',
-                      }}
-                      value={percentage}
-                      onChange={item => {
-                        setpercentage(item);
-                        values.percentage = item.value;
-                        console.log(noofQoutation);
-                      }}
-                      enableErrors>
-                      {_.map(percentageData, option => (
-                        <Picker.Item
-                          key={option.value}
-                          value={option}
-                          label={option.label}
-                        />
-                      ))}
-                    </Picker>
-                    {errors.percentage && (
-                      <Text style={{fontSize: 10, color: 'red'}}>
-                        {errors.percentage}
-                      </Text>
-                    )}
-                  </View>
-                </View>
-                <View flex row width={elementWidth} marginT-10>
-                  <View
-                    width={'50%'}
-                    height={elementHeight}
-                    marginB-s2
-                    padding-5
-                    bg-greyDark
-                    borderRadius={2}
-                    borderWidth={
-                      Colors.greyDark === Colors.greyLight ? 0.9 : 0
-                    }>
-                    <Picker
-                      placeholder={'Priority'}
-                      placeholderTextColor={Colors.textColor}
-                      trailingAccessory={dropdownIcon}
-                      migrateTextField
-                      showSearch
-                      pickerModalProps={{
-                        animated: true,
-                        animationType: 'slide',
-                      }}
-                      value={priority}
-                      onChange={item => {
-                        setpriority(item);
-                        values.priority = item.value;
-                      }}
-                      enableErrors>
-                      {_.map(priorityData, option => (
-                        <Picker.Item
-                          key={option.value}
-                          value={option}
-                          label={option.label}
-                        />
-                      ))}
-                    </Picker>
-                    {errors.priority && (
-                      <Text style={{fontSize: 10, color: 'red'}}>
-                        {errors.priority}
-                      </Text>
-                    )}
-                  </View>
-                  <View
-                    width={'45%'}
-                    marginL-15
-                    marginB-s2
-                    padding-5
-                    bg-greyDark
-                    borderRadius={2}
-                    borderWidth={
-                      Colors.greyDark === Colors.greyLight ? 0.9 : 0
-                    }>
-                    <TextField
-                      name="pCharges"
-                      onChangeText={handleChange('pCharges')}
-                      onBlur={handleBlur('pCharges')}
-                      value={values.pCharges}
-                      keyboardType="email-address"
-                      hideUnderline={true}
-                      blurOnSubmit={false}
-                      placeholder="P Charges"
-                      text12ExtraBold
-                      textColor
-                      placeholderTextColor={Colors.textColor}
-                      // onChangeText={setCompanyName}
-                      migrate
-                      onSubmitEditing={() => {
-                        //phoneNumberRef?.current.focus();
-                      }}
-                      returnKeyType={'next'}
-                    />
-                    {errors.pCharges && (
-                      <Text style={{fontSize: 10, color: 'red'}}>
-                        {errors.pCharges}
-                      </Text>
-                    )}
-                  </View>
-                </View>
+
                 <TextField
                   name="notes"
                   onChangeText={handleChange('notes')}
@@ -738,9 +583,17 @@ export const InquiryForm: ScreenComponent<Props> = ({componentId}) => {
           </Formik>
         </View>
       </ScrollView>
-    </View>
+        { stores.query.is_query_ops_loading && <LoaderScreen overlay backgroundColor={Colors._blackish} />}
+<Dialog
+ visible={stores.query.is_success_modal_shown}
+ onDismiss={() => console.log('dismissed')}
+ panDirection={PanningProvider.Directions.DOWN}
+>
+ {<Text text60>Content</Text>}
+</Dialog>
+    </>
   );
-};
+});
 
 const styles = StyleSheet.create({
   contentContainer: {

@@ -45,3 +45,19 @@ export interface UserData {
   user_status: string;
   display_name: string;
 }
+export interface InquiryData {
+  user_id: string;
+  volunteer_inquiry_form: string;
+  volunteer_date: string;
+  volunteer_quotations: string;
+  volunteer_item: string;
+  volunteer_quantity: string;
+  volunteer_packaging: string;
+  volunteer_country_of_origin: string;
+  volunteer_delivery_days: string;
+  volunteer_delivery_locations: string;
+  volunteer_delivery_area: string;
+  volunteer_delivery_line: string;
+  volunteer_delivery_line2: string;
+  volunteer_notes: string;
+}

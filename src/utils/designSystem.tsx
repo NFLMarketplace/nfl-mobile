@@ -15,6 +15,7 @@ export class DesignSystem {
     greyDark: '#1C1E1F',
     greyLight: '#FFFFFF',
     _black: Colors.rgba(20, 20, 20, 1),
+    _blackish: Colors.rgba(20, 20, 20, 0.2),
     _black2: Colors.rgba(50, 50, 50, 1),
     _white: Colors.rgba(250, 250, 250, 1),
     _white2: Colors.rgba(230, 230, 230, 1),

@@ -1,4 +1,4 @@
-import {Modal, RadioButton, View} from 'react-native-ui-lib';
+import {Modal, RadioButton, View, RadioGroup} from 'react-native-ui-lib';
 import React from 'react';
 import {Dimensions, FlatList} from 'react-native';
 const screenHeight = Dimensions.get('window').height;
@@ -13,6 +13,7 @@ export const FreezoneModal: ScreenComponent<Props> = ({
   componentId,
   show,
   onClosedPressed,
+  value,
 }) => {
   const datalist = [
     'Dubai South',
@@ -59,16 +60,18 @@ export const FreezoneModal: ScreenComponent<Props> = ({
       bg-greyDark
       width={elementWidth}
       height={elementHeight}>
-      <RadioButton
-        marginT-5
-        value={null}
-        label={item}
-        size={15}
-        selected={true}
-        onPress={() => {
-          onClosedPressed();
-        }}
-      />
+      <RadioGroup initialValue={''} onValueChange={res => (value = res)}>
+        <RadioButton
+          marginT-5
+          value={item}
+          label={item}
+          size={15}
+          selected={true}
+          onPress={() => {
+            onClosedPressed();
+          }}
+        />
+      </RadioGroup>
     </View>
   );
   return (
