@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {observer} from 'mobx-react';
 import {ScrollView, Dimensions, StyleSheet} from 'react-native';
 import {LoaderScreen, PanningProvider, Dialog} from 'react-native-ui-lib';
-import {MainHeader} from '../components';
+import {MainHeader, CustomDialog} from '../components';
 import {ScreenComponent} from 'rnn-screens';
 import {stores} from '../stores';
 import _ from 'lodash';
@@ -87,7 +87,7 @@ export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
     '-' +
     JSON.stringify(randomIntFromInterval(10000000));
   return (
-  <>
+    <>
       <MainHeader
         title={'NFL Inquiry Form'}
         leftIcon={'md-chevron-back'}
@@ -96,7 +96,7 @@ export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
         }}
       />
 
-      <ScrollView contentInsetAdjustmentBehavior="always" >
+      <ScrollView contentInsetAdjustmentBehavior="always">
         <View flex center bg-bgColor>
           <Formik
             validationSchema={ValidationSchema}
@@ -583,14 +583,10 @@ export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
           </Formik>
         </View>
       </ScrollView>
-        { stores.query.is_query_ops_loading && <LoaderScreen overlay backgroundColor={Colors._blackish} />}
-<Dialog
- visible={stores.query.is_success_modal_shown}
- onDismiss={() => console.log('dismissed')}
- panDirection={PanningProvider.Directions.DOWN}
->
- {<Text text60>Content</Text>}
-</Dialog>
+      {stores.query.is_query_ops_loading && (
+        <LoaderScreen overlay backgroundColor={Colors._blackish} />
+      )}
+      {stores.query.is_success_modal_shown && <CustomDialog loader={true} />}
     </>
   );
 });

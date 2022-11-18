@@ -9,7 +9,7 @@ import {observable} from 'mobx';
 export class QueryStore implements IStore {
   @observable inquiry_data: InquiryData | null = null;
   @observable is_query_ops_loading = false;
-  @observable is_success_modal_shown = true;
+  @observable is_success_modal_shown = false;
   someProperty = [];
 
   constructor() {
@@ -59,7 +59,8 @@ export class QueryStore implements IStore {
         if (status === 200) {
           console.log('Data send');
           //nav.goToMain();
-          this.handleSuccessModal(true)
+          this.handleSuccessModal(true);
+          console.log(this.is_success_modal_shown);
         } else {
           this.handleServerExceptions(apiResponse.data.message);
         }
@@ -83,10 +84,10 @@ export class QueryStore implements IStore {
   }
 
   /**
-  * this will be called by component of dialogue to close itself
-  * */
+   * this will be called by component of dialogue to close itself
+   * */
   handleSuccessModal(value: boolean): void {
-    this.is_success_modal_shown= value;
+    this.is_success_modal_shown = value;
   }
 
   private handleQueryOpsLoading(loading: boolean): void {

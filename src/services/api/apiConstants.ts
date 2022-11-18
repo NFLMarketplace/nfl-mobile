@@ -3,3 +3,4 @@ export const BASE_URL =
 export const LOGIN_EP = 'token';
 export const REGISTER_EP = 'register';
 export const Inq_EP = 'inquiry/get';
+export const Com_EP = 'company-formation/create';

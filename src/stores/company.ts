@@ -3,12 +3,13 @@ import {hydrateStore, makePersistable} from 'mobx-persist-store';
 import {IStore, InquiryData, PVoid} from '../utils/types';
 import {apiSauce} from '../services/api/apiManager';
 import {services} from '../services';
-import {Inq_EP} from '../services/api/apiConstants';
+import {Com_EP} from '../services/api/apiConstants';
 import {Alert} from 'react-native';
 import {observable} from 'mobx';
 import {string} from 'yup/lib/locale';
 export class CompanyStore implements IStore {
-  @observable is_user_ops_loading = false;
+  @observable is_com_ops_loading = false;
+  @observable is_success_modal_shown = false;
   someProperty = [];
 
   constructor() {
@@ -20,9 +21,9 @@ export class CompanyStore implements IStore {
     });
   }
   attemptToPostCompanyData(): void {
-    this.handleUserOpsLoading(true);
+    this.handleComOpsLoading(true);
     apiSauce(false)
-      .post(Inq_EP, {
+      .post(Com_EP, {
         user_id: string,
         first_name: string,
         middle_name: string,
@@ -37,11 +38,12 @@ export class CompanyStore implements IStore {
         const {status} = apiResponse;
         if (status === 200) {
           console.log('Data send');
+          this.handleSuccessModal(true);
           //nav.goToMain();
         } else {
           this.handleServerExceptions(apiResponse.data.message);
         }
-        this.handleUserOpsLoading(false);
+        this.handleComOpsLoading(false);
       })
       .catch(_apiError => {
         this.handleServerExceptions(_apiError.message);
@@ -65,11 +67,13 @@ export class CompanyStore implements IStore {
         'Something Went Wrong, Please contact Support',
       );
     }
-    this.handleUserOpsLoading(false);
+  }
+  handleSuccessModal(value: boolean): void {
+    this.is_success_modal_shown = value;
   }
 
-  private handleUserOpsLoading(loading: boolean): void {
-    this.is_user_ops_loading = loading;
+  private handleComOpsLoading(loading: boolean): void {
+    this.is_com_ops_loading = loading;
   }
 
   // Hydration

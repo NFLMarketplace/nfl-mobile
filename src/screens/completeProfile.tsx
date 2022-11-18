@@ -14,6 +14,7 @@ import {
 } from 'react-native-ui-lib';
 import {services} from '../services';
 import {MainHeader} from '../components';
+import {observe} from 'mobx';
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
 const elementWidth = screenWidth * 0.85;
