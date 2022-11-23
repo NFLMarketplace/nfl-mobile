@@ -21,7 +21,8 @@
     "release": "dotenv release-it",
     "postinstall": "patch-package",
     "assemble_assets_for_build": "npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/",
-    "debug_build_android": " yarn assemble_assets_for_build  && cd android && ./gradlew assembleDebug && cd app/build/outputs/apk/debug && cp -R ./ ~/Desktop && cd ~/Desktop && open .;"
+    "debug_build_android": " yarn assemble_assets_for_build  && cd android && ./gradlew assembleDebug && cd app/build/outputs/apk/debug && cp -R ./ ~/Desktop && cd ~/Desktop && open .;",
+    "release_build_android": "cd android && ./gradlew assembleRelease && cd app/build/outputs/apk/release && cp -R ./ ~/Desktop && cd ~/Desktop && open .;"
   },
   "dependencies": {
     "@kanzitelli/if-component": "^0.3.0",
@@ -31,6 +32,7 @@
     "apisauce": "^2.1.6",
     "date-fns": "^2.29.3",
     "expo": "^46.0.16",
+    "expo-image-picker": "~13.3.1",
     "expo-localization": "^13.1.0",
     "expo-status-bar": "~1.4.0",
     "formik": "^2.2.9",

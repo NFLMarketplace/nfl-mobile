@@ -70,7 +70,7 @@ export const Profile: ScreenComponent<Props> = ({componentId}) => {
               screens.show('CompleteProfile');
             }}>
             <Text text18Medium color={Colors.yellow30}>
-              Edit Business Details
+              Edi Business Details
             </Text>
           </TouchableOpacity>
           <TouchableOpacity marginT-20>

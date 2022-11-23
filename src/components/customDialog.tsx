@@ -52,8 +52,8 @@ export const CustomDialog: React.FC<CustomDialogProps> = ({loader}) => {
             onPress={() => {
               stores.company.handleSuccessModal(false);
               stores.query.handleSuccessModal(false);
+              stores.profile.handleSuccessModal(false);
               services.nav.goToMain();
-              console.log(visible);
             }}
             borderRadius={8}
             style={{height: 48, marginTop: 10, width: elementWidth}}
