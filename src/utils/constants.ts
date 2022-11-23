@@ -1,13 +1,16 @@
 import {Dimensions} from 'react-native';
+import {Assets} from 'react-native-ui-lib';
 
 export const useConstants = () => {
   const dim = Dimensions.get('screen');
 
   return {
     dim,
-    links: {
-      github: 'https://github.com/kanzitelli/rnn-starter',
-      website: 'https://batyr.io',
-    },
   };
 };
+
+export function readAllAssets(): void {
+  Assets.loadAssetsGroup('icons', {
+    logo: require('../../assets/images/logo_top.png'),
+  });
+}
