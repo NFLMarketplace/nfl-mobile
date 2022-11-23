@@ -76,10 +76,7 @@ export type Props = {
 };
 export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
   const [noofQoutation, setnoofQoutation] = useState('');
-  const [Item, setItem] = useState('');
-  const [paymentMethod, setpaymentMethod] = useState('');
-  const [percentage, setpercentage] = useState('');
-  const [priority, setpriority] = useState('');
+
   const currentDate = DataShow();
   const formNo =
     'NFL-0' +
@@ -137,7 +134,9 @@ export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
                     borderWidth={
                       Colors.greyDark === Colors.greyLight ? 0.9 : 0
                     }>
-                    <Text text10Medium>Inquiry Form#</Text>
+                    <Text textColor text8Medium>
+                      Inquiry Form#
+                    </Text>
                     <TextField
                       labelStyle={{fontSize: 15, fontWeight: 'bold'}}
                       label={formNo}
@@ -165,7 +164,9 @@ export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
                     borderWidth={
                       Colors.greyDark === Colors.greyLight ? 0.9 : 0
                     }>
-                    <Text text10Medium>Date</Text>
+                    <Text textColor text8Medium>
+                      Date
+                    </Text>
                     <TextField
                       labelStyle={{fontSize: 15, fontWeight: 'bold'}}
                       label={currentDate}
@@ -184,7 +185,7 @@ export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
                   </View>
                 </View>
                 <View width={elementWidth} padding-5>
-                  <Text text10Medium>
+                  <Text textColor text8Medium>
                     Please specify the number of quotations you want to receive
                     for the inquiry
                   </Text>
@@ -227,13 +228,13 @@ export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
                   )}
                 </View>
                 <View padding-5 width={elementWidth} marginL-5>
-                  <Text text12Medium color={Colors.yellow30}>
+                  <Text text8Medium color={Colors.yellow30}>
                     . You will be charged a total of 120 AED based on the number
                     of Quotations
                   </Text>
                 </View>
                 <View padding-5 width={elementWidth}>
-                  <Text text12Medium>
+                  <Text textColor text8Medium>
                     Please specify the necessary information for your inquiry
                   </Text>
                 </View>
@@ -254,7 +255,7 @@ export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
                     blurOnSubmit={false}
                     keyboardType="name"
                     placeholder="Items"
-                    text12ExtraBold
+                    text12Medium
                     textColor
                     placeholderTextColor={Colors.textColor}
                     // onChangeText={setCompanyName}
@@ -264,9 +265,9 @@ export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
                     }}
                     returnKeyType={'next'}
                   />
-                  {errors.quantityInKg && (
+                  {errors.item && (
                     <Text style={{fontSize: 10, color: 'red'}}>
-                      {errors.quantityInKg}
+                      {errors.item}
                     </Text>
                   )}
                 </View>
@@ -291,7 +292,7 @@ export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
                       blurOnSubmit={false}
                       keyboardType="name"
                       placeholder="Quantity (in KG)"
-                      text12ExtraBold
+                      text12Medium
                       textColor
                       placeholderTextColor={Colors.textColor}
                       // onChangeText={setCompanyName}
@@ -327,7 +328,7 @@ export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
                       blurOnSubmit={false}
                       keyboardType="name"
                       placeholder="Packaging (in KG)"
-                      text12ExtraBold
+                      text12Medium
                       textColor
                       placeholderTextColor={Colors.textColor}
                       // onChangeText={setCompanyName}
@@ -363,7 +364,7 @@ export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
                       blurOnSubmit={false}
                       keyboardType="name"
                       placeholder="Country of Origin"
-                      text12ExtraBold
+                      text12Medium
                       textColor
                       placeholderTextColor={Colors.textColor}
                       // onChangeText={setCompanyName}
@@ -398,7 +399,7 @@ export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
                       blurOnSubmit={false}
                       keyboardType="name"
                       placeholder="Delivery Days"
-                      text12ExtraBold
+                      text12Medium
                       textColor
                       placeholderTextColor={Colors.textColor}
                       // onChangeText={setCompanyName}
@@ -435,7 +436,7 @@ export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
                       blurOnSubmit={false}
                       keyboardType="name"
                       placeholder="Delivery Location"
-                      text12ExtraBold
+                      text12Medium
                       textColor
                       placeholderTextColor={Colors.textColor}
                       // onChangeText={setCompanyName}
@@ -471,7 +472,7 @@ export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
                       blurOnSubmit={false}
                       keyboardType="name"
                       placeholder="Delivery Area"
-                      text12ExtraBold
+                      text12Medium
                       textColor
                       placeholderTextColor={Colors.textColor}
                       // onChangeText={setCompanyName}
@@ -500,7 +501,7 @@ export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
                   style={styles.textField}
                   keyboardType="name"
                   placeholder="Adress Line 1"
-                  text14Medium
+                  text12Medium
                   textColor
                   placeholderTextColor={Colors.textColor}
                   // onChangeText={setCompanyName}
@@ -531,7 +532,7 @@ export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
                   style={styles.textField}
                   keyboardType="name"
                   placeholder="Adress Line 2"
-                  text14Medium
+                  text12Medium
                   textColor
                   placeholderTextColor={Colors.textColor}
                   // onChangeText={setCompanyName}
@@ -559,7 +560,7 @@ export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
                   blurOnSubmit={false}
                   style={styles.textField}
                   placeholder="Notes (optional)"
-                  text14Medium
+                  text12Medium
                   textColor
                   placeholderTextColor={Colors.textColor}
                   // onChangeText={setCompanyName}
@@ -572,6 +573,8 @@ export const InquiryForm: ScreenComponent<Props> = observer(({componentId}) => {
 
                 <Button
                   label={'Submit inquiry'}
+                  text18Bold
+                  textColor
                   borderRadius={8}
                   disabled={!isValid}
                   onPress={handleSubmit}

@@ -36,26 +36,27 @@ export const Main: ScreenComponent = observer(({componentId}) => {
       title: 'PRO Services',
       bgImgUrl:
         'https://nfl-api.techgebagency.website/wp-content/uploads/2022/10/PRO-Services.jpg',
-      onPress: 'CompanyFormation',
+      onPress: '',
     },
     {
       id: 2,
       title: 'B2B Services',
       bgImgUrl:
         'https://nfl-api.techgebagency.website/wp-content/uploads/2022/10/B2B-Services.jpg',
-      onPress: 'CompanyFormation',
+      onPress: '',
     },
     {
       id: 3,
       title: 'B2C Services',
       bgImgUrl:
         'https://nfl-api.techgebagency.website/wp-content/uploads/2022/10/B2C-Services.jpg',
-      onPress: 'InquiryForm',
+      onPress: '',
     },
     {
       id: 4,
       title: 'Company Formation',
-      bgImgUrl:'https://nfl-api.techgebagency.website/wp-content/uploads/2022/10/Company-Formation.jpg',
+      bgImgUrl:
+        'https://nfl-api.techgebagency.website/wp-content/uploads/2022/10/Company-Formation.jpg',
       onPress: 'CompanyFormation',
     },
 
@@ -64,7 +65,7 @@ export const Main: ScreenComponent = observer(({componentId}) => {
       title: 'WPS Services',
       bgImgUrl:
         'https://nfl-api.techgebagency.website/wp-content/uploads/2022/10/WPS-Services.jpg',
-      onPress: 'InquiryForm',
+      onPress: '',
     },
   ];
 

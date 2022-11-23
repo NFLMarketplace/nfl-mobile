@@ -16,7 +16,7 @@ export class ProfileStore implements IStore {
     makeAutoObservable(this);
 
     makePersistable(this, {
-      name: 'Query Details',
+      name: 'Profile Details',
       properties: [''],
     });
   }

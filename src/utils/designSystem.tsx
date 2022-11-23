@@ -72,6 +72,7 @@ export class DesignSystem {
       text28Bold: {fontSize: 28, fontFamily: this.fonts.bold},
       text24Bold: {fontSize: 24, fontFamily: this.fonts.bold},
       text18Bold: {fontSize: 18, fontFamily: this.fonts.bold},
+      text12Bold: {fontSize: 12, fontFamily: this.fonts.bold},
       text10Medium: {
         fontSize: 10,
         fontFamily: this.fonts.medium,
@@ -86,6 +87,10 @@ export class DesignSystem {
       },
       text12Medium: {
         fontSize: 12,
+        fontFamily: this.fonts.medium,
+      },
+      text8Medium: {
+        fontSize: 8,
         fontFamily: this.fonts.medium,
       },
       text12ExtraBold: {

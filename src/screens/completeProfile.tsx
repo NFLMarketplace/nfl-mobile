@@ -40,9 +40,12 @@ const logoHeight = screenHeight / 11;
 const dropdown = require('../../assets/icons/chevronDown.png');
 import * as ImagePicker from 'expo-image-picker';
 const city = [
-  {label: '10', value: '10'},
-  {label: '20-50', value: '20-25'},
-  {label: '50-100', value: '50-100'},
+  {label: 'Abu Dhabi', value: 'Abu Dhabi'},
+  {label: 'Dubai', value: 'Dubai'},
+  {label: 'Sharjah', value: 'Sharjah'},
+  {label: 'Ajman', value: 'Ajman'},
+  {label: 'Umm Al Quwain', value: 'Umm Al Quwain'},
+  {label: 'Ras AL Khaimah and Fujairah', value: 'Ras AL Khaimah and Fujairah'},
 ];
 
 const dropdownIcon = <Icon source={dropdown} tintColor={Colors.textColor} />;
@@ -1122,6 +1125,7 @@ export const CompleteProfile: ScreenComponent<Props> = observer(
                       borderRadius={8}
                       onPress={handleSubmit}
                       style={styles.button}
+                      text18Bold
                       backgroundColor={Colors.primary}
                     />
                   </View>

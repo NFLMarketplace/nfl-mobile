@@ -34,7 +34,9 @@ export const MainHeader: React.FC<MainHeaderProps> = ({
         )}
       </View>
       <View width={'60%'} center>
-        <Text text18Bold>{title}</Text>
+        <Text textColor text18Bold>
+          {title}
+        </Text>
       </View>
       <View width={'20%'} right>
         {rightIcon && (

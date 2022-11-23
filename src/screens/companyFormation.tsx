@@ -136,7 +136,7 @@ export const CompanyFormation: ScreenComponent<Props> = observer(
               }) => (
                 <>
                   <View marginT-1 padding-5 width={elementWidth}>
-                    <Text text12Medium>Company Information</Text>
+                    <Text text10Medium>Company Information</Text>
                   </View>
                   <View
                     marginB-s2
@@ -158,7 +158,7 @@ export const CompanyFormation: ScreenComponent<Props> = observer(
                       style={styles.textField}
                       keyboardType="name"
                       placeholder="First Name Preference"
-                      text14Medium
+                      text12Medium
                       textColor
                       placeholderTextColor={Colors.textColor}
                       // onChangeText={setCompanyName}
@@ -194,7 +194,7 @@ export const CompanyFormation: ScreenComponent<Props> = observer(
                       style={styles.textField}
                       keyboardType="name"
                       placeholder="Second Name Preference"
-                      text14Medium
+                      text12Medium
                       textColor
                       placeholderTextColor={Colors.textColor}
                       // onChangeText={setCompanyName}
@@ -231,7 +231,7 @@ export const CompanyFormation: ScreenComponent<Props> = observer(
                       style={styles.textField}
                       keyboardType="name"
                       placeholder="Last Name Preference"
-                      text14Medium
+                      text12Medium
                       textColor
                       placeholderTextColor={Colors.textColor}
                       // onChangeText={setCompanyName}
@@ -247,14 +247,19 @@ export const CompanyFormation: ScreenComponent<Props> = observer(
                       </Text>
                     )}
                   </View>
+                  <View marginT-1 width={elementWidth}>
+                    <Text text10Medium>Company Owner</Text>
+                  </View>
                   <View
                     marginT-5
+                    bg-greyDark
                     width={elementWidth}
                     height={elementHeight}
                     borderWidth={
                       Colors.greyDark === Colors.greyLight ? 0.9 : 0
                     }>
                     <TextField
+                      paddingT-5
                       name="business_name"
                       onChangeText={handleChange('business_name')}
                       onBlur={handleBlur('business_name')}
@@ -266,7 +271,7 @@ export const CompanyFormation: ScreenComponent<Props> = observer(
                       style={styles.textField}
                       keyboardType="name"
                       placeholder="Company owner Name"
-                      text14Medium
+                      text12Medium
                       textColor
                       placeholderTextColor={Colors.textColor}
                       // onChangeText={setCompanyName}
@@ -282,11 +287,12 @@ export const CompanyFormation: ScreenComponent<Props> = observer(
                       </Text>
                     )}
                   </View>
-                  <View marginT-5 padding-5 width={elementWidth}>
-                    <Text text12Medium>Technical Details</Text>
+                  <View marginT-5 width={elementWidth}>
+                    <Text text10Medium>Technical Details</Text>
                   </View>
                   <View>
                     <RadioGroup
+                      paddingT-5
                       name="technical_details"
                       onChangeText={handleChange('technical_details')}
                       onBlur={handleBlur('technical_details')}
@@ -308,6 +314,7 @@ export const CompanyFormation: ScreenComponent<Props> = observer(
                           }>
                           <RadioButton
                             marginT-5
+                            text12Medium
                             label={'LLC (100%)'}
                             value={'LLC (100%)'}
                             size={15}
@@ -580,8 +587,10 @@ export const CompanyFormation: ScreenComponent<Props> = observer(
                     label={'Accept'}
                     color="black"
                     borderRadius={8}
+                    disabled={!isValid}
                     onPress={handleSubmit}
                     style={styles.button}
+                    text18Bold
                     backgroundColor={Colors.primary}
                   />
                 </>
