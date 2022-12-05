@@ -49,6 +49,7 @@
     "react-native-mmkv": "2.4.3",
     "react-native-navigation": "7.29.0",
     "react-native-navigation-hooks": "^6.3.0",
+    "react-native-onboarding-swiper": "^1.2.0",
     "react-native-pager-view": "^6.1.0",
     "react-native-reanimated": "^2.11.0",
     "react-native-splash-screen": "^3.3.0",

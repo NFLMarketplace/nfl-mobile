@@ -14,6 +14,8 @@ import {CompleteProfile} from './completeProfile';
 import {withBottomTab, withRightButtons} from '../services/navigation/options';
 import {withAppearance} from '../utils/hooks';
 import {withSS} from '../utils/providers';
+import {OnboardingScreen} from './onboardingScreen';
+import {ProServices} from './anyProServices';
 
 export const screens = generateRNNScreens(
   {
@@ -87,6 +89,14 @@ export const screens = generateRNNScreens(
         },
       },
     },
+    ProServices: {
+      component: ProServices,
+      options: {
+        topBar: {
+          visible: false,
+        },
+      },
+    },
     CompanyFormation: {
       component: CompanyFormation,
       options: {
@@ -97,6 +107,14 @@ export const screens = generateRNNScreens(
     },
     CompleteProfile: {
       component: CompleteProfile,
+      options: {
+        topBar: {
+          visible: false,
+        },
+      },
+    },
+    OnboardingScreen: {
+      component: OnboardingScreen,
       options: {
         topBar: {
           visible: false,
