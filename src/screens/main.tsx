@@ -36,7 +36,7 @@ export const Main: ScreenComponent = observer(({componentId}) => {
       title: 'PRO Services',
       bgImgUrl:
         'https://nfl-api.techgebagency.website/wp-content/uploads/2022/10/PRO-Services.jpg',
-      onPress: '',
+      onPress: 'ProServices',
     },
     {
       id: 2,
