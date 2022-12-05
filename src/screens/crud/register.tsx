@@ -75,24 +75,58 @@ export const Register: NavigationFunctionComponent = observer(
         <KeyboardAwareScrollView
           contentContainerStyle={styles.contentContainer}>
           <View center flex>
-            <View center marginB-s10>
-              <Image
-                assetName="logo"
-                style={styles.logoImage}
-                resizeMode="contain"
-              />
-              <Text text28Bold textColor>
-                MARKET PLACE
-              </Text>
-            </View>
             <View bottom marginB-s2>
               <Text text24Bold margin-s2 textColor>
                 Register to Get Started
               </Text>
+              <Text text14Bold margin-s2 textColor>
+                Register as a
+              </Text>
+              <View
+                row
+                spread
+                height={elementHeight}
+                width={elementWidth}
+                marginV-10>
+                <View
+                  bg-greyDark
+                  height={elementHeight}
+                  borderRadius={defaultBorderRadius}
+                  borderWidth={Colors.greyDark === Colors.greyLight ? 0.8 : 0}>
+                  <Button
+                    label="Buyer"
+                    textColor
+                    borderRadius={defaultBorderRadius}
+                    style={styles.buttonsmall}></Button>
+                </View>
+                <View
+                  bg-greyDark
+                  height={elementHeight}
+                  borderRadius={defaultBorderRadius}
+                  borderWidth={Colors.greyDark === Colors.greyLight ? 0.8 : 0}>
+                  <Button
+                    label="Supplier"
+                    textColor
+                    borderRadius={defaultBorderRadius}
+                    style={styles.buttonsmall}></Button>
+                </View>
+              </View>
+              <View
+                marginB-s2
+                bg-greyDark
+                borderRadius={defaultBorderRadius}
+                borderWidth={Colors.greyDark === Colors.greyLight ? 0.8 : 0}>
+                <Button
+                  label="both"
+                  textColor
+                  borderRadius={defaultBorderRadius}
+                  backgroundColor={Colors.white}
+                  style={styles.button}></Button>
+              </View>
               <View
                 bg-greyDark
                 borderRadius={defaultBorderRadius}
-                borderWidth={Colors.greyDark === Colors.greyLight ? 0.2 : 0}>
+                borderWidth={Colors.greyDark === Colors.greyLight ? 0.8 : 0}>
                 <TextField
                   width={elementWidth}
                   height={elementHeight}
@@ -144,7 +178,7 @@ export const Register: NavigationFunctionComponent = observer(
               marginB-s2
               bg-greyDark
               borderRadius={8}
-              borderWidth={Colors.greyDark === Colors.greyLight ? 0.2 : 0}>
+              borderWidth={Colors.greyDark === Colors.greyLight ? 0.8 : 0}>
               <TextField
                 width={elementWidth}
                 height={elementHeight}
@@ -166,7 +200,7 @@ export const Register: NavigationFunctionComponent = observer(
               />
             </View>
             <View
-              borderWidth={Colors.greyDark === Colors.greyLight ? 0.2 : 0}
+              borderWidth={Colors.greyDark === Colors.greyLight ? 0.8 : 0}
               marginB-s2
               bg-greyDark
               br-8
@@ -272,6 +306,11 @@ const styles = StyleSheet.create({
   button: {
     height: 48,
     width: elementWidth,
+  },
+  buttonsmall: {
+    height: 40,
+    backgroundColor: 'white',
+    width: elementWidth / 2 - 5,
   },
   checkboxSelected: {
     backgroundColor: Colors.primary,
