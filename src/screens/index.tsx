@@ -15,7 +15,11 @@ import {withBottomTab, withRightButtons} from '../services/navigation/options';
 import {withAppearance} from '../utils/hooks';
 import {withSS} from '../utils/providers';
 import {OnboardingScreen} from './onboardingScreen';
-import {ProServices} from './anyProServices';
+import {AddProServices} from './anyProServices';
+import {B2BServices} from './B2B Services';
+import {B2CServices} from './B2C Services';
+import {WPSServices} from './WPS Services';
+import {ProServices} from './ProServices';
 
 export const screens = generateRNNScreens(
   {
@@ -83,6 +87,38 @@ export const screens = generateRNNScreens(
 
     InquiryForm: {
       component: InquiryForm,
+      options: {
+        topBar: {
+          visible: false,
+        },
+      },
+    },
+    AddProServices: {
+      component: AddProServices,
+      options: {
+        topBar: {
+          visible: false,
+        },
+      },
+    },
+    B2BServices: {
+      component: B2BServices,
+      options: {
+        topBar: {
+          visible: false,
+        },
+      },
+    },
+    B2CServices: {
+      component: B2CServices,
+      options: {
+        topBar: {
+          visible: false,
+        },
+      },
+    },
+    WPSServices: {
+      component: WPSServices,
       options: {
         topBar: {
           visible: false,

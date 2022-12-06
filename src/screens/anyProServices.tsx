@@ -21,7 +21,7 @@ const logoHeight = screenHeight / 11;
 export type Props = {
   componentId: string;
 };
-export const ProServices: ScreenComponent<Props> = ({componentId}) => {
+export const AddProServices: ScreenComponent<Props> = ({componentId}) => {
   return (
     <View flex bg-bgColor>
       <MainHeader

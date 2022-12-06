@@ -1,10 +1,10 @@
 import React from 'react';
 import {ScrollView, Dimensions, StyleSheet} from 'react-native';
+import {ScreenComponent} from 'rnn-screens';
+import {Colors, Text, View, Image} from 'react-native-ui-lib';
 import iconImag from '../../assets/images/icon.png';
 import {MainHeader} from '../components';
-import {ScreenComponent} from 'rnn-screens';
-import {services, Services} from '../services';
-import {Colors, Text, View, Image} from 'react-native-ui-lib';
+import {services} from '../services';
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
 const elementWidth = screenWidth * 0.85;
@@ -14,11 +14,11 @@ const logoHeight = screenHeight / 11;
 export type Props = {
   componentId: string;
 };
-export const Wallet: ScreenComponent<Props> = ({componentId}) => {
+export const B2CServices: ScreenComponent<Props> = ({componentId}) => {
   return (
     <View flex bg-bgColor>
       <MainHeader
-        title="Wallet"
+        title="B2C Services"
         leftIcon={'md-chevron-back'}
         leftIconAction={() => {
           services.nav.goToMain();

@@ -43,14 +43,14 @@ export const Main: ScreenComponent = observer(({componentId}) => {
       title: 'B2B Services',
       bgImgUrl:
         'https://nfl-api.techgebagency.website/wp-content/uploads/2022/10/B2B-Services.jpg',
-      onPress: '',
+      onPress: 'B2BServices',
     },
     {
       id: 3,
       title: 'B2C Services',
       bgImgUrl:
         'https://nfl-api.techgebagency.website/wp-content/uploads/2022/10/B2C-Services.jpg',
-      onPress: '',
+      onPress: 'B2CServices',
     },
     {
       id: 4,
@@ -65,7 +65,7 @@ export const Main: ScreenComponent = observer(({componentId}) => {
       title: 'WPS Services',
       bgImgUrl:
         'https://nfl-api.techgebagency.website/wp-content/uploads/2022/10/WPS-Services.jpg',
-      onPress: '',
+      onPress: 'WPSServices',
     },
   ];
 
