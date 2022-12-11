@@ -7,6 +7,7 @@ import {apiSauce} from '../services/api/apiManager';
 import {LOGIN_EP, REGISTER_EP} from '../services/api/apiConstants';
 import {IStore, UserData, PVoid} from '../utils/types';
 import {services} from '../services';
+import { stores } from '.';
 
 export class UserStore implements IStore {
   is_logged_in = false;
@@ -29,12 +30,12 @@ export class UserStore implements IStore {
           const {nav} = services;
           nav.goToMain();
         } else {
-          this.handleServerExceptions(apiResponse.data.message);
+          stores.troubleshooter.handleServerExceptions(apiResponse.data.message);
         }
         this.handleUserOpsLoading(false);
       })
       .catch(_apiError => {
-        this.handleServerExceptions(_apiError.message);
+        stores.troubleshooter.handleServerExceptions(_apiError.message);
       });
   }
 
@@ -70,12 +71,13 @@ export class UserStore implements IStore {
         if (status === 200) {
           this.handleIsLoggedIn(true);
         } else {
-          this.handleServerExceptions(apiResponse.data.message);
+          stores.troubleshooter.handleServerExceptions(apiResponse.data.message);
         }
         this.handleUserOpsLoading(false);
       })
       .catch(_apiError => {
-        this.handleServerExceptions(_apiError.message);
+        stores.troubleshooter.handleServerExceptions(_apiError.message);
+        this.handleUserOpsLoading(false)
       });
   }
 
@@ -86,20 +88,6 @@ export class UserStore implements IStore {
       name: 'user_details',
       properties: ['user_jwt_token', 'is_logged_in', 'user_phone_number'],
     });
-  }
-  /***
-   * handles servers exceptions
-   * */
-  handleServerExceptions(message?: string): void {
-    if (message) {
-      Alert.alert('We Are Sorry', message);
-    } else {
-      Alert.alert(
-        'We Are Sorry',
-        'Something Went Wrong, Please contact Support',
-      );
-    }
-    this.handleUserOpsLoading(false);
   }
 
   private handleAuthToken(token: string): void {

@@ -23,6 +23,7 @@ import {If} from '@kanzitelli/if-component';
 import {screens} from '../index';
 import {stores} from '../../stores';
 import {services} from '../../services';
+import { showToast } from '../../utils/help';
 
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
@@ -42,11 +43,11 @@ export const Login: NavigationFunctionComponent = observer(({componentId}) => {
   }, []);
   const handleSubmitPress = () => {
     if (!email) {
-      Alert.alert('Alert', 'Please enter Email');
+      showToast('error', 'Alert', 'Please enter email')
       return;
     }
     if (!password) {
-      Alert.alert('Alert', 'Please enter Password');
+      showToast('error', 'Alert', 'Please enter password')
       return;
     }
     stores.user.attemptToLogin(email, password);

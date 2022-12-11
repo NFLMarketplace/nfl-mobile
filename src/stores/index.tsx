@@ -7,6 +7,7 @@ import {UserStore} from './user';
 import {QueryStore} from './query';
 import {CompanyStore} from './company';
 import {ProfileStore} from './profile';
+import { TroublerShootStore } from './troubleshooter';
 
 export class Stores {
   static async hydrate(): PVoid {
@@ -28,6 +29,7 @@ export class Stores {
   counter = new CounterStore();
   company = new CompanyStore();
   profile = new ProfileStore();
+  troubleshooter = new TroublerShootStore();
 }
 export const stores = new Stores();
 

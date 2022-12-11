@@ -1,5 +1,5 @@
 import {LogBox} from 'react-native';
-import {Root, Screen, BottomTabs} from 'rnn-screens';
+import {Root, Screen} from 'rnn-screens';
 
 import {screens} from './src/screens';
 import {Services} from './src/services';

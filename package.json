@@ -22,10 +22,12 @@
     "postinstall": "patch-package",
     "assemble_assets_for_build": "npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/",
     "debug_build_android": " yarn assemble_assets_for_build  && cd android && ./gradlew assembleDebug && cd app/build/outputs/apk/debug && cp -R ./ ~/Desktop && cd ~/Desktop && open .;",
-    "release_build_android": "cd android && ./gradlew assembleRelease && cd app/build/outputs/apk/release && cp -R ./ ~/Desktop && cd ~/Desktop && open .;"
+    "release_build_android": "cd android && ./gradlew assembleRelease && cd app/build/outputs/apk/release && cp -R ./ ~/Desktop && cd ~/Desktop && open .;",
+    "release_bundle_android": "cd android && ./gradlew bundleRelease && cd app/build/outputs/bundle/release && cp -R ./ ~/Desktop && cd ~/Desktop && open .;"
   },
   "dependencies": {
     "@kanzitelli/if-component": "^0.3.0",
+    "@react-native-community/netinfo": "^9.3.7",
     "@react-navigation/material-top-tabs": "^6.3.0",
     "@react-navigation/native": "^6.0.13",
     "@shopify/flash-list": "^1.3.1",
@@ -54,6 +56,7 @@
     "react-native-reanimated": "^2.11.0",
     "react-native-splash-screen": "^3.3.0",
     "react-native-tab-view": "^3.3.0",
+    "react-native-toast-message": "^2.1.5",
     "react-native-ui-lib": "^6.22.1",
     "react-native-vector-icons": "^9.2.0",
     "rn-bounceable": "^1.2.0",
